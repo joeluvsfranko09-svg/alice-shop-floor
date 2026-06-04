@@ -1,0 +1,20 @@
+[project]
+name = "alice_shop_floor"
+authors = [
+    { name = "Athlettia LLC", email = "frankoy@athlettia.com" }
+    ]
+    description = "ALICE Shop Floor OS - Frappe/ERPNext custom app for Athlettia LLC"
+    requires-python = ">=3.10"
+    readme = "README.md"
+    dynamic = ["version"]
+
+    dependencies = [
+        "frappe"
+        ]
+
+        [build-system]
+        requires = ["flit_core >=3.4.0,<4"]
+        build-backend = "flit_core.buildapi"
+
+        [tool.flit.module]
+        name = "alice_shop_floor"
