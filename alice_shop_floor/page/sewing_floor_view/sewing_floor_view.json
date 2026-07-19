@@ -1,0 +1,12 @@
+{
+  "name": "sewing-floor-view",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "sewing-floor-view",
+  "title": "Sewing Floor",
+  "roles": [
+    {"role": "Manufacturing User"},
+    {"role": "Manufacturing Manager"},
+    {"role": "System Manager"}
+  ]
+}

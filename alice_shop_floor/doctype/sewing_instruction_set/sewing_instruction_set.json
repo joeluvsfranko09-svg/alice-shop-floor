@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "autoname": "format:SIS-{item}-{#####}",
+ "creation": "2026-05-13 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_ref",
+  "item",
+  "work_order",
+  "garment_photo",
+  "cb_ref",
+  "is_wo_override",
+  "notes",
+  "section_steps",
+  "steps",
+  "section_meta",
+  "translated_languages",
+  "last_translated"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_ref",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item (template)",
+   "options": "Item",
+   "description": "Leave blank if this is a WO-specific override."
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order (override)",
+   "options": "Work Order",
+   "description": "If set, overrides the Item template for this specific WO."
+  },
+  {
+   "fieldname": "garment_photo",
+   "fieldtype": "Attach Image",
+   "label": "Garment Reference Photo"
+  },
+  {
+   "fieldname": "cb_ref",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_wo_override",
+   "fieldtype": "Check",
+   "label": "WO-Specific Override"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Special Notes (English)",
+   "description": "Shown at top of sewing tablet. Auto-translated to operator language."
+  },
+  {
+   "fieldname": "section_steps",
+   "fieldtype": "Section Break",
+   "label": "Sewing Steps"
+  },
+  {
+   "fieldname": "steps",
+   "fieldtype": "Table",
+   "label": "Instruction Steps",
+   "options": "Sewing Instruction Step"
+  },
+  {
+   "fieldname": "section_meta",
+   "fieldtype": "Section Break",
+   "label": "Translation Status"
+  },
+  {
+   "fieldname": "translated_languages",
+   "fieldtype": "Data",
+   "label": "Translated Into",
+   "read_only": 1,
+   "description": "Comma-separated language codes that have been translated."
+  },
+  {
+   "fieldname": "last_translated",
+   "fieldtype": "Datetime",
+   "label": "Last Translated",
+   "read_only": 1
+  }
+ ],
+ "modified": "2026-05-13 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Sewing Instruction Set",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Shop Floor Supervisor",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Shop Floor Operator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

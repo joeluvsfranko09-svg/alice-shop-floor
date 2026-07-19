@@ -1,0 +1,13 @@
+{
+  "name": "solid-cut-entry",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "solid-cut-entry",
+  "title": "Solid Cut Entry",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"}
+  ]
+}

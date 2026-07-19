@@ -1,0 +1,22 @@
+{
+  "name": "Garment Defect Map",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "istable": 1,
+  "fields": [
+    {"fieldname": "defect_index",    "fieldtype": "Int",     "label": "Defect #",       "in_list_view": 1},
+    {"fieldname": "defect_type",     "fieldtype": "Select",  "label": "Defect Type",    "in_list_view": 1,
+     "options": "Seam Puckering\nMisaligned Print\nColour Bleed\nMissing Stitch\nThread Pull\nHole\nStain\nSize Label Missing\nCare Label Missing\nOther"},
+    {"fieldname": "severity",        "fieldtype": "Select",  "label": "Severity",       "in_list_view": 1,
+     "options": "Minor\nMajor\nCritical"},
+    {"fieldname": "garment_zone",    "fieldtype": "Select",  "label": "Garment Zone",
+     "options": "Front Body\nBack Body\nLeft Sleeve\nRight Sleeve\nCollar\nHem\nSide Seam\nPocket\nOther"},
+    {"fieldname": "x_mm",            "fieldtype": "Float",   "label": "X (mm)"},
+    {"fieldname": "y_mm",            "fieldtype": "Float",   "label": "Y (mm)"},
+    {"fieldname": "width_mm",        "fieldtype": "Float",   "label": "Width (mm)"},
+    {"fieldname": "height_mm",       "fieldtype": "Float",   "label": "Height (mm)"},
+    {"fieldname": "confidence_score","fieldtype": "Float",   "label": "Confidence"},
+    {"fieldname": "image_ref",       "fieldtype": "Data",    "label": "Image Ref"}
+  ],
+  "permissions": []
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "doctype": "Quality Inspection Template",
+    "name": "DTG Quality Check",
+    "description": "Quality inspection checklist for Direct-to-Garment (Kornit Apollo) decorated garments.",
+    "item_quality_inspection_parameter": [
+      {
+        "specification": "Print Registration",
+        "value": "Centered within ±3mm of spec",
+        "acceptance_criteria": "Visual check: design placement matches order spec ±3mm",
+        "sample_size": 1
+      },
+      {
+        "specification": "Color Accuracy",
+        "value": "Match to approved swatch within ΔE ≤ 3.0",
+        "acceptance_criteria": "Compare to approved digital proof. Reject if obvious color cast or missing colors.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Edge Sharpness",
+        "value": "No bleed beyond 1mm",
+        "acceptance_criteria": "Inspect perimeter of print area. No uncontrolled ink spread.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Pretreat Visibility",
+        "value": "No visible pretreat residue after cure",
+        "acceptance_criteria": "No white haze or wet spots on printed area. If residue present, check cure temp/time.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Cure / Wash Fastness",
+        "value": "No ink transfer on reverse press",
+        "acceptance_criteria": "Apply reverse pressure test paper. No transfer acceptable. If fail, extend cure.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Fabric Damage",
+        "value": "No scorch, stretch, or distortion",
+        "acceptance_criteria": "Inspect garment around print area. No thermal damage to fabric.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Ink Coverage",
+        "value": "Full coverage in solid areas",
+        "acceptance_criteria": "No white pinholes or unprinted gaps in solid fill areas.",
+        "sample_size": 1
+      }
+    ]
+  },
+  {
+    "doctype": "Quality Inspection Template",
+    "name": "DTF Quality Check",
+    "description": "Quality inspection checklist for Direct-to-Film (STAHLS' Fulfill Engine) heat-transfer decorated garments.",
+    "item_quality_inspection_parameter": [
+      {
+        "specification": "Transfer Adhesion",
+        "value": "No peel, lift, or bubble at edges",
+        "acceptance_criteria": "Flex the garment. Transfer edges must remain fully bonded. Any lift = fail.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Press Registration",
+        "value": "Centered within ±3mm of spec",
+        "acceptance_criteria": "Measure placement from collar/hem reference point against order spec.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Surface Texture",
+        "value": "Smooth, no film bubbles or wrinkles",
+        "acceptance_criteria": "Inspect transfer surface. No trapped air, wrinkles, or surface texture inconsistencies.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Color Accuracy",
+        "value": "Match to approved proof",
+        "acceptance_criteria": "Compare to approved digital/physical proof. No significant color shift.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Carrier Film Removal",
+        "value": "No film residue remaining",
+        "acceptance_criteria": "Confirm hot/cold peel completed per recipe. No carrier film shreds on surface.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Fabric Damage",
+        "value": "No press marks or scorch on garment",
+        "acceptance_criteria": "Inspect area outside transfer boundary for press plate marks or scorch lines.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Wash Fastness (sample)",
+        "value": "Transfer intact after simulated wash",
+        "acceptance_criteria": "Periodic sample test only. Transfer must not crack or peel at 60°C wash.",
+        "sample_size": 1
+      }
+    ]
+  },
+  {
+    "doctype": "Quality Inspection Template",
+    "name": "Embroidery Quality Check",
+    "description": "Quality inspection checklist for embroidered garments (Tajima TMEF-H1506).",
+    "item_quality_inspection_parameter": [
+      {
+        "specification": "Stitch Registration",
+        "value": "Design matches approved DST proof ±2mm",
+        "acceptance_criteria": "Compare physical embroidery to approved proof card. Placement within 2mm.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Thread Tension",
+        "value": "No looping, pulls, or puckering",
+        "acceptance_criteria": "Inspect both sides of embroidery. No visible bobbin thread on face. No fabric puckering.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Thread Color Accuracy",
+        "value": "Thread colors match approved color map",
+        "acceptance_criteria": "Compare each thread color to the recipe's thread color map. No substitutions without approval.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Stitch Density",
+        "value": "No sparse or open areas in solid fills",
+        "acceptance_criteria": "Inspect solid fill areas. No gap or see-through areas in the embroidery coverage.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Stabilizer Removal",
+        "value": "Stabilizer fully removed or trimmed per spec",
+        "acceptance_criteria": "Tearaway: fully removed. Cutaway: trimmed to ¼ inch of design. Water-soluble: fully dissolved.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Jump Stitches / Trims",
+        "value": "All jump stitches trimmed flush",
+        "acceptance_criteria": "No thread tails longer than 3mm visible on face of garment. Back trims within 5mm.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Needle Holes / Fabric Damage",
+        "value": "No stray needle holes outside design boundary",
+        "acceptance_criteria": "Inspect fabric around design perimeter. No stray needle punctures or fabric damage.",
+        "sample_size": 1
+      },
+      {
+        "specification": "Hoop Burn",
+        "value": "No hoop ring marks on visible garment area",
+        "acceptance_criteria": "Check for circular press marks from hooping. Light shadow marks may be steamed out; permanent marks = fail.",
+        "sample_size": 1
+      }
+    ]
+  }
+]

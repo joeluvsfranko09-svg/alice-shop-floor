@@ -1,0 +1,27 @@
+{
+  "name": "Final Inspection Config",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 1,
+  "istable": 0,
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "cognex_section", "fieldtype": "Section Break", "label": "Cognex Connection"},
+    {"fieldname": "cognex_host", "fieldtype": "Data", "label": "Cognex Host", "reqd": 1, "default": "192.168.1.50"},
+    {"fieldname": "cognex_port", "fieldtype": "Int", "label": "Cognex Port", "reqd": 1, "default": "80"},
+    {"fieldname": "cognex_job_name", "fieldtype": "Data", "label": "Job Name", "reqd": 1, "default": "ZAZFIT_FinalGarment_QC"},
+    {"fieldname": "cognex_username", "fieldtype": "Data", "label": "Username", "default": "admin"},
+    {"fieldname": "cognex_password", "fieldtype": "Password", "label": "Password"},
+    {"fieldname": "poll_section", "fieldtype": "Section Break", "label": "Polling"},
+    {"fieldname": "poll_interval_seconds", "fieldtype": "Int", "label": "Poll Interval (s)", "default": "10"},
+    {"fieldname": "max_poll_attempts", "fieldtype": "Int", "label": "Max Poll Attempts", "default": "30"},
+    {"fieldname": "thresholds_section", "fieldtype": "Section Break", "label": "Pass/Fail Thresholds"},
+    {"fieldname": "max_minor_defects", "fieldtype": "Int", "label": "Max Minor Defects", "default": "3"},
+    {"fieldname": "max_major_defects", "fieldtype": "Int", "label": "Max Major Defects", "default": "1"},
+    {"fieldname": "fail_on_any_critical", "fieldtype": "Check", "label": "Fail on Any Critical Defect", "default": "1"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1},
+    {"role": "System Manager",        "read": 1, "write": 1}
+  ]
+}

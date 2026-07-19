@@ -1,0 +1,228 @@
+{
+ "name": "Sewing Bin Assignment",
+ "doctype": "DocType",
+ "module": "Alice Shop Floor",
+ "description": "Assigns a Work Order bundle to a sewing station whose machine type matches the BOM operation, and whose operator has the best skill score.",
+ "autoname": "format:BIN-{work_order}-{#####}",
+ "field_order": [
+  "work_order","production_item","station","operator","col_break_1",
+  "status","priority",
+  "section_machine","required_machine_type","station_machine_type","machine_match","col_break_2",
+  "operator_skill_score","assignment_method",
+  "section_context","fabric_lot","cut_inspection_status",
+  "section_timing","assigned_at","picked_at","completed_at",
+  "section_scan","bin_barcode","label_printed",
+  "section_kitting","kit_status","kitted_at","kitted_by","col_break_kit",
+  "pick_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order",
+   "reqd": 1,
+   "in_list_view": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "production_item",
+   "fieldtype": "Data",
+   "label": "Item",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "station",
+   "fieldtype": "Link",
+   "label": "Sewing Station",
+   "options": "Sewing Station",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "operator",
+   "fieldtype": "Link",
+   "label": "Assigned Operator",
+   "options": "Employee",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Queued\nKitting\nKit Ready\nPicked\nIn Progress\nComplete\nReturned",
+   "default": "Queued",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Normal\nHigh\nRush",
+   "default": "Normal",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_machine",
+   "fieldtype": "Section Break",
+   "label": "Machine & BOM Match"
+  },
+  {
+   "fieldname": "required_machine_type",
+   "fieldtype": "Link",
+   "label": "Required Machine Type (BOM)",
+   "options": "Workstation",
+   "read_only": 1,
+   "description": "Workstation required by the BOM Operation for this WO"
+  },
+  {
+   "fieldname": "station_machine_type",
+   "fieldtype": "Link",
+   "label": "Station Machine Type",
+   "options": "Workstation",
+   "read_only": 1,
+   "description": "Machine type at the assigned station"
+  },
+  {
+   "fieldname": "machine_match",
+   "fieldtype": "Check",
+   "label": "Machine Matched",
+   "read_only": 1,
+   "default": "0",
+   "description": "1 = station machine matches BOM requirement"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "operator_skill_score",
+   "fieldtype": "Float",
+   "label": "Operator Skill (Sewing)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assignment_method",
+   "fieldtype": "Select",
+   "label": "Assignment Method",
+   "options": "Auto (AI)\nManual",
+   "default": "Auto (AI)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_context",
+   "fieldtype": "Section Break",
+   "label": "Context"
+  },
+  {
+   "fieldname": "fabric_lot",
+   "fieldtype": "Data",
+   "label": "Fabric Lot",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cut_inspection_status",
+   "fieldtype": "Data",
+   "label": "V3 Cut Gate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_timing",
+   "fieldtype": "Section Break",
+   "label": "Timing"
+  },
+  {
+   "fieldname": "assigned_at",
+   "fieldtype": "Datetime",
+   "label": "Assigned At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "picked_at",
+   "fieldtype": "Datetime",
+   "label": "Picked At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_at",
+   "fieldtype": "Datetime",
+   "label": "Completed At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_scan",
+   "fieldtype": "Section Break",
+   "label": "Scan & Label"
+  },
+  {
+   "fieldname": "bin_barcode",
+   "fieldtype": "Barcode",
+   "label": "Bin Barcode",
+   "read_only": 1,
+   "description": "Scan this code to advance bin status on the shop floor"
+  },
+  {
+   "fieldname": "label_printed",
+   "fieldtype": "Check",
+   "label": "Label Printed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_kitting",
+   "fieldtype": "Section Break",
+   "label": "Picker Kitting"
+  },
+  {
+   "fieldname": "kit_status",
+   "fieldtype": "Select",
+   "label": "Kit Status",
+   "options": "Not Started\nIn Progress\nKit Ready",
+   "default": "Not Started",
+   "in_list_view": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "kitted_at",
+   "fieldtype": "Datetime",
+   "label": "Kitted At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kitted_by",
+   "fieldtype": "Link",
+   "label": "Kitted By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_kit",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pick_list",
+   "fieldtype": "Table",
+   "label": "Pick List",
+   "options": "Bin Pick List Item",
+   "description": "Piece-level pick list — filled by the picker tablet with virtual light assist"
+  }
+ ],
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+  {"role": "Shop Floor Supervisor", "read": 1, "write": 1, "create": 1},
+  {"role": "Shop Floor Picker", "read": 1, "write": 1}
+ ],
+ "sort_field": "assigned_at",
+ "sort_order": "DESC",
+ "creation": "2026-05-01 00:00:00",
+ "modified": "2026-05-13 00:00:00",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "actions": [],
+ "links": []
+}

@@ -1,0 +1,113 @@
+{
+  "name": "Cut Bundle",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "description": "Tracks all cut pieces for a Work Order after nesting and cutting. Records fabric zone and shade per piece so the sewer can verify completeness and shade consistency before starting.",
+  "fields": [
+    {
+      "fieldname": "work_order",
+      "fieldtype": "Link",
+      "label": "Work Order",
+      "options": "Work Order",
+      "reqd": 1,
+      "in_list_view": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "production_item",
+      "fieldtype": "Data",
+      "label": "Item",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "fabric_lot",
+      "fieldtype": "Data",
+      "label": "Fabric Lot",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "bundle_status",
+      "fieldtype": "Select",
+      "label": "Bundle Status",
+      "options": "Incomplete\nComplete\nShade Warning\nShade Mismatch\nRejected",
+      "default": "Incomplete",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "total_pieces_expected",
+      "fieldtype": "Int",
+      "label": "Pieces Expected",
+      "in_list_view": 1,
+      "description": "Total cut pieces required for this garment (from BOM)"
+    },
+    {
+      "fieldname": "total_pieces_cut",
+      "fieldtype": "Int",
+      "label": "Pieces Cut",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "shade_zones_count",
+      "fieldtype": "Int",
+      "label": "Shade Zones Used",
+      "read_only": 1,
+      "description": "Number of distinct shade zones across all pieces. >1 triggers a warning."
+    },
+    {
+      "fieldname": "section_pieces",
+      "fieldtype": "Section Break",
+      "label": "Cut Pieces"
+    },
+    {
+      "fieldname": "pieces",
+      "fieldtype": "Table",
+      "label": "Pieces",
+      "options": "Cut Bundle Piece"
+    },
+    {
+      "fieldname": "section_flags",
+      "fieldtype": "Section Break",
+      "label": "Flags & Notes"
+    },
+    {
+      "fieldname": "shade_mismatch_detail",
+      "fieldtype": "Small Text",
+      "label": "Shade Mismatch Detail",
+      "read_only": 1,
+      "description": "Auto-populated: which pieces have differing shade refs"
+    },
+    {
+      "fieldname": "supervisor_cleared",
+      "fieldtype": "Check",
+      "label": "Supervisor Cleared Shade Warning",
+      "default": "0"
+    },
+    {
+      "fieldname": "cleared_by",
+      "fieldtype": "Link",
+      "label": "Cleared By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "title_field": "work_order",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "permissions": [
+    {"role": "Manufacturing User",    "read": 1, "write": 1, "create": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

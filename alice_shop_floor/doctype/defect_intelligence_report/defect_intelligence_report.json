@@ -1,0 +1,31 @@
+{
+  "name": "Defect Intelligence Report",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:DIR-{window_label}-{##}",
+  "track_changes": 0,
+  "fields": [
+    {"fieldname": "window_label",   "fieldtype": "Data",     "label": "Window Label",      "in_list_view": 1, "reqd": 1},
+    {"fieldname": "window_start",   "fieldtype": "Datetime", "label": "Window Start"},
+    {"fieldname": "window_end",     "fieldtype": "Datetime", "label": "Window End"},
+    {"fieldname": "generated_at",   "fieldtype": "Datetime", "label": "Generated At"},
+    {"fieldname": "totals_section", "fieldtype": "Section Break", "label": "Totals"},
+    {"fieldname": "total_wos_inspected","fieldtype": "Int",  "label": "WOs Inspected"},
+    {"fieldname": "overall_pass_rate_pct","fieldtype": "Float","label": "Overall Pass Rate %"},
+    {"fieldname": "total_defects",  "fieldtype": "Int",      "label": "Total Defects"},
+    {"fieldname": "defects_minor",  "fieldtype": "Int",      "label": "Minor"},
+    {"fieldname": "defects_major",  "fieldtype": "Int",      "label": "Major"},
+    {"fieldname": "defects_critical","fieldtype": "Int",     "label": "Critical"},
+    {"fieldname": "stage_section",  "fieldtype": "Section Break", "label": "By Stage"},
+    {"fieldname": "stage_summaries","fieldtype": "Table",    "label": "Stage Summaries", "options": "Defect Stage Summary"},
+    {"fieldname": "patterns_section","fieldtype": "Section Break", "label": "Patterns & Insights"},
+    {"fieldname": "top_defect_types","fieldtype": "Small Text","label": "Top Defect Types (JSON)"},
+    {"fieldname": "top_fabric_lots", "fieldtype": "Small Text","label": "High-Fail Fabric Lots (JSON)"},
+    {"fieldname": "top_operators",   "fieldtype": "Small Text","label": "Operators Needing Attention (JSON)"},
+    {"fieldname": "ai_summary",      "fieldtype": "Long Text", "label": "AI Summary"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

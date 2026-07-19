@@ -1,0 +1,91 @@
+{
+  "name": "Stitch Inspection Config",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 1,
+  "fields": [
+    {
+      "fieldname": "cognex_host",
+      "fieldtype": "Data",
+      "label": "Cognex In-Sight Host / IP",
+      "reqd": 1,
+      "default": "192.168.1.100",
+      "description": "IP or hostname of the Cognex camera used for stitch inspection"
+    },
+    {
+      "fieldname": "cognex_port",
+      "fieldtype": "Int",
+      "label": "Cognex REST Port",
+      "default": 80,
+      "reqd": 1
+    },
+    {
+      "fieldname": "cognex_job_name",
+      "fieldtype": "Data",
+      "label": "Cognex Job Name",
+      "default": "stitch_inspection"
+    },
+    {
+      "fieldname": "cognex_username",
+      "fieldtype": "Data",
+      "label": "Cognex Username",
+      "default": "admin"
+    },
+    {
+      "fieldname": "cognex_password",
+      "fieldtype": "Password",
+      "label": "Cognex Password"
+    },
+    {
+      "fieldname": "section_thresholds",
+      "fieldtype": "Section Break",
+      "label": "Pass / Fail Thresholds"
+    },
+    {
+      "fieldname": "max_skipped_stitches",
+      "fieldtype": "Int",
+      "label": "Max Skipped Stitches (Pass)",
+      "default": 0,
+      "description": "Any skipped stitch = Fail if set to 0"
+    },
+    {
+      "fieldname": "max_broken_stitches",
+      "fieldtype": "Int",
+      "label": "Max Broken Stitches (Pass)",
+      "default": 0
+    },
+    {
+      "fieldname": "max_loose_stitches",
+      "fieldtype": "Int",
+      "label": "Max Loose Stitches (Pass)",
+      "default": 3
+    },
+    {
+      "fieldname": "fail_on_any_critical",
+      "fieldtype": "Check",
+      "label": "Fail on Any Critical Stitch Defect",
+      "default": 1
+    },
+    {
+      "fieldname": "section_polling",
+      "fieldtype": "Section Break",
+      "label": "Polling"
+    },
+    {
+      "fieldname": "poll_interval_seconds",
+      "fieldtype": "Int",
+      "label": "Poll Interval (seconds)",
+      "default": 10
+    },
+    {
+      "fieldname": "max_poll_attempts",
+      "fieldtype": "Int",
+      "label": "Max Poll Attempts Before Timeout",
+      "default": 30
+    }
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1},
+    {"role": "System Manager", "read": 1, "write": 1}
+  ]
+}

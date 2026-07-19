@@ -1,0 +1,31 @@
+{
+  "name": "ESG Metric Log",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:ESG-{work_order}-{##}",
+  "track_changes": 0,
+  "fields": [
+    {"fieldname": "work_order",       "fieldtype": "Link",     "label": "Work Order",     "options": "Work Order", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "fabric_lot",       "fieldtype": "Data",     "label": "Fabric Lot"},
+    {"fieldname": "logged_at",        "fieldtype": "Datetime", "label": "Logged At"},
+    {"fieldname": "material_section", "fieldtype": "Section Break", "label": "Material"},
+    {"fieldname": "fabric_used_gsm",  "fieldtype": "Float",    "label": "Fabric Used (g)"},
+    {"fieldname": "fabric_ordered_gsm","fieldtype": "Float",   "label": "Fabric Ordered (g)"},
+    {"fieldname": "waste_grams",      "fieldtype": "Float",    "label": "Waste (g)",      "in_list_view": 1},
+    {"fieldname": "waste_pct",        "fieldtype": "Float",    "label": "Waste %",        "in_list_view": 1},
+    {"fieldname": "water_section",    "fieldtype": "Section Break", "label": "Water & Energy"},
+    {"fieldname": "water_litres",     "fieldtype": "Float",    "label": "Water Used (L)"},
+    {"fieldname": "energy_kwh",       "fieldtype": "Float",    "label": "Energy Used (kWh)"},
+    {"fieldname": "carbon_kg",        "fieldtype": "Float",    "label": "CO₂ Equivalent (kg)"},
+    {"fieldname": "flags_section",    "fieldtype": "Section Break", "label": "Flags"},
+    {"fieldname": "exceeds_waste_target",  "fieldtype": "Check", "label": "Exceeds Waste Target"},
+    {"fieldname": "exceeds_water_target",  "fieldtype": "Check", "label": "Exceeds Water Target"},
+    {"fieldname": "exceeds_energy_target", "fieldtype": "Check", "label": "Exceeds Energy Target"},
+    {"fieldname": "notes",            "fieldtype": "Small Text","label": "Notes"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing User",    "read": 1, "write": 1, "create": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

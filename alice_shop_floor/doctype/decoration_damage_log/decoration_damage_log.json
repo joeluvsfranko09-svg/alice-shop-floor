@@ -1,0 +1,288 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "damage_type",
+  "damage_severity",
+  "column_break_top",
+  "job_card",
+  "work_order",
+  "production_recipe",
+  "section_garment",
+  "garment_item_code",
+  "garment_serial_no",
+  "supplier",
+  "column_break_garment",
+  "garment_size",
+  "garment_color",
+  "garment_sku",
+  "section_damage",
+  "damage_description",
+  "damage_photo",
+  "column_break_damage",
+  "decoration_method",
+  "operator",
+  "damage_detected_at",
+  "section_replacement",
+  "replacement_triggered",
+  "replacement_po",
+  "replacement_status",
+  "column_break_repl",
+  "replacement_supplier",
+  "replacement_ordered_on",
+  "replacement_eta",
+  "section_root_cause",
+  "root_cause_category",
+  "root_cause_notes",
+  "corrective_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "DDL-.YYYY.MM.-.#####"
+  },
+  {
+   "fieldname": "damage_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Damage Type",
+   "options": "Pretreat Bleed\nInk Smear\nMisaligned Print\nScorched Fabric\nTransfer Lift\nBubble/Blister\nColor Fade\nEmbroidery Pucker\nThread Break\nNeedle Hole\nMissed Print\nPress Mark\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "damage_severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "Minor\nMajor\nTotal Loss",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_card",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Job Card",
+   "options": "Job Card",
+   "reqd": 1
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order"
+  },
+  {
+   "fieldname": "production_recipe",
+   "fieldtype": "Link",
+   "label": "Production Recipe",
+   "options": "Production Recipe"
+  },
+  {
+   "fieldname": "section_garment",
+   "fieldtype": "Section Break",
+   "label": "Damaged Garment"
+  },
+  {
+   "fieldname": "garment_item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "garment_serial_no",
+   "fieldtype": "Link",
+   "label": "Serial No",
+   "options": "Serial No"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Select",
+   "label": "Blank Supplier",
+   "options": "\nSanMar\nS&S Activewear\nAlphabroader\nOther"
+  },
+  {
+   "fieldname": "column_break_garment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "garment_size",
+   "fieldtype": "Data",
+   "label": "Garment Dimensions"
+  },
+  {
+   "fieldname": "garment_color",
+   "fieldtype": "Data",
+   "label": "Garment Color"
+  },
+  {
+   "fieldname": "garment_sku",
+   "fieldtype": "Data",
+   "label": "Supplier SKU"
+  },
+  {
+   "fieldname": "section_damage",
+   "fieldtype": "Section Break",
+   "label": "Damage Detail"
+  },
+  {
+   "fieldname": "damage_description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "damage_photo",
+   "fieldtype": "Attach Image",
+   "label": "Damage Photo"
+  },
+  {
+   "fieldname": "column_break_damage",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "decoration_method",
+   "fieldtype": "Select",
+   "label": "Decoration Method",
+   "options": "\nDTG\nDTF\nEmbroidery"
+  },
+  {
+   "fieldname": "operator",
+   "fieldtype": "Link",
+   "label": "Operator",
+   "options": "User"
+  },
+  {
+   "fieldname": "damage_detected_at",
+   "fieldtype": "Datetime",
+   "label": "Detected At"
+  },
+  {
+   "fieldname": "section_replacement",
+   "fieldtype": "Section Break",
+   "label": "Replacement Order"
+  },
+  {
+   "default": "0",
+   "fieldname": "replacement_triggered",
+   "fieldtype": "Check",
+   "label": "Replacement Triggered"
+  },
+  {
+   "fieldname": "replacement_po",
+   "fieldtype": "Link",
+   "label": "Replacement PO",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "replacement_status",
+   "fieldtype": "Select",
+   "label": "Replacement Status",
+   "options": "\nPending\nOrdered\nShipped\nReceived\nNot Required"
+  },
+  {
+   "fieldname": "column_break_repl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "replacement_supplier",
+   "fieldtype": "Select",
+   "label": "Replacement Supplier",
+   "options": "\nSanMar\nS&S Activewear\nAlphabroader\nOther"
+  },
+  {
+   "fieldname": "replacement_ordered_on",
+   "fieldtype": "Date",
+   "label": "Ordered On"
+  },
+  {
+   "fieldname": "replacement_eta",
+   "fieldtype": "Date",
+   "label": "ETA"
+  },
+  {
+   "fieldname": "section_root_cause",
+   "fieldtype": "Section Break",
+   "label": "Root Cause Analysis"
+  },
+  {
+   "fieldname": "root_cause_category",
+   "fieldtype": "Select",
+   "label": "Root Cause Category",
+   "options": "\nOperator Error\nMachine Malfunction\nArt File Issue\nFabric Incompatibility\nRecipe Error\nSupplier Defect\nCalibration Drift\nOther"
+  },
+  {
+   "fieldname": "root_cause_notes",
+   "fieldtype": "Small Text",
+   "label": "Root Cause Notes"
+  },
+  {
+   "fieldname": "corrective_action",
+   "fieldtype": "Small Text",
+   "label": "Corrective Action Taken"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Decoration Damage Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {"color": "Red", "title": "Total Loss"},
+  {"color": "Orange", "title": "Major"},
+  {"color": "Yellow", "title": "Minor"}
+ ],
+ "title_field": "name",
+ "track_changes": 1
+}

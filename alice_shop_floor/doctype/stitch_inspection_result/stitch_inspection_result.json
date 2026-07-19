@@ -1,0 +1,160 @@
+{
+  "name": "Stitch Inspection Result",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "SIR-{work_order}-{##}",
+  "sort_field": "inspected_at",
+  "sort_order": "DESC",
+  "title_field": "work_order",
+  "fields": [
+    {
+      "fieldname": "work_order",
+      "fieldtype": "Link",
+      "options": "Work Order",
+      "label": "Work Order",
+      "reqd": 1,
+      "in_list_view": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "tracker",
+      "fieldtype": "Link",
+      "options": "Production Stage Tracker",
+      "label": "Stage Tracker"
+    },
+    {
+      "fieldname": "overall_result",
+      "fieldtype": "Select",
+      "label": "Overall Result",
+      "options": "Pending\nPass\nFail\nError",
+      "default": "Pending",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "inspected_at",
+      "fieldtype": "Datetime",
+      "label": "Inspected At",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "cognex_job_id",
+      "fieldtype": "Data",
+      "label": "Cognex Job ID",
+      "read_only": 1
+    },
+    {
+      "fieldname": "triggered_by",
+      "fieldtype": "Link",
+      "options": "User",
+      "label": "Triggered By"
+    },
+    {
+      "fieldname": "section_counts",
+      "fieldtype": "Section Break",
+      "label": "Defect Counts"
+    },
+    {
+      "fieldname": "skipped_stitches",
+      "fieldtype": "Int",
+      "label": "Skipped Stitches",
+      "default": 0,
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "broken_stitches",
+      "fieldtype": "Int",
+      "label": "Broken Stitches",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "loose_stitches",
+      "fieldtype": "Int",
+      "label": "Loose Stitches",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "col_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "critical_defect_count",
+      "fieldtype": "Int",
+      "label": "Critical Defects",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_defect_count",
+      "fieldtype": "Int",
+      "label": "Total Defects",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_map",
+      "fieldtype": "Section Break",
+      "label": "Stitch Defect Map"
+    },
+    {
+      "fieldname": "defect_map",
+      "fieldtype": "Table",
+      "label": "Defect Map",
+      "options": "Stitch Defect Map"
+    },
+    {
+      "fieldname": "section_notes",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "fail_reason",
+      "fieldtype": "Small Text",
+      "label": "Fail Reason",
+      "read_only": 1
+    },
+    {
+      "fieldname": "error_message",
+      "fieldtype": "Small Text",
+      "label": "Error Message",
+      "read_only": 1
+    },
+    {
+      "fieldname": "supervisor_override",
+      "fieldtype": "Check",
+      "label": "Supervisor Override (Force Pass)",
+      "default": 0
+    },
+    {
+      "fieldname": "override_notes",
+      "fieldtype": "Small Text",
+      "label": "Override Notes",
+      "depends_on": "eval:doc.supervisor_override==1"
+    },
+    {
+      "fieldname": "overridden_by",
+      "fieldtype": "Link",
+      "options": "User",
+      "label": "Overridden By",
+      "read_only": 1
+    },
+    {
+      "fieldname": "overridden_at",
+      "fieldtype": "Datetime",
+      "label": "Overridden At",
+      "read_only": 1
+    }
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "Manufacturing User", "read": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1}
+  ]
+}

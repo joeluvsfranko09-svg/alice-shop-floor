@@ -1,0 +1,70 @@
+{
+  "name": "Cut Deviation Map",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+    {
+      "fieldname": "deviation_index",
+      "fieldtype": "Int",
+      "label": "Dev #",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "deviation_type",
+      "fieldtype": "Select",
+      "label": "Deviation Type",
+      "options": "Length Over\nLength Under\nWidth Over\nWidth Under\nAngle Deviation\nRagged Edge\nNotch Missing\nOther",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "label": "Severity",
+      "options": "Minor\nMajor\nCritical",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "panel_id",
+      "fieldtype": "Data",
+      "label": "Panel ID",
+      "in_list_view": 1,
+      "description": "e.g. Front Body, Back Body, Left Sleeve"
+    },
+    {
+      "fieldname": "measured_mm",
+      "fieldtype": "Float",
+      "label": "Measured (mm)"
+    },
+    {
+      "fieldname": "expected_mm",
+      "fieldtype": "Float",
+      "label": "Expected (mm)"
+    },
+    {
+      "fieldname": "deviation_mm",
+      "fieldtype": "Float",
+      "label": "Deviation (mm)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "angle_deviation_deg",
+      "fieldtype": "Float",
+      "label": "Angle Deviation (deg)"
+    },
+    {
+      "fieldname": "confidence_score",
+      "fieldtype": "Float",
+      "label": "Confidence Score"
+    },
+    {
+      "fieldname": "image_ref",
+      "fieldtype": "Data",
+      "label": "Image Crop Reference"
+    }
+  ]
+}

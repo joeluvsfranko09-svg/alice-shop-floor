@@ -1,0 +1,302 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "priority",
+  "column_break_top",
+  "production_recipe",
+  "job_card",
+  "work_order",
+  "section_art",
+  "original_art_file",
+  "art_format",
+  "column_break_art",
+  "design_width_in",
+  "design_height_in",
+  "stitch_count_estimate",
+  "section_dst",
+  "dst_file",
+  "dst_approved_by",
+  "dst_approved_on",
+  "column_break_dst",
+  "digitizer_name",
+  "digitizing_software",
+  "dst_version",
+  "section_workflow",
+  "submitted_on",
+  "submitted_by",
+  "column_break_wf",
+  "digitizing_started_on",
+  "review_sent_on",
+  "column_break_wf2",
+  "approved_on",
+  "released_on",
+  "section_notes",
+  "rejection_reason",
+  "notes",
+  "revision_count"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "DQ-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Submitted\nDigitizing\nReview\nApproved\nReleased\nRejected\nCancelled",
+   "reqd": 1,
+   "default": "Submitted"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "Normal\nRush\nUrgent",
+   "default": "Normal"
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "production_recipe",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Production Recipe",
+   "options": "Production Recipe",
+   "reqd": 1
+  },
+  {
+   "fieldname": "job_card",
+   "fieldtype": "Link",
+   "label": "Job Card",
+   "options": "Job Card"
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order"
+  },
+  {
+   "fieldname": "section_art",
+   "fieldtype": "Section Break",
+   "label": "Original Artwork"
+  },
+  {
+   "fieldname": "original_art_file",
+   "fieldtype": "Attach",
+   "label": "Original Art File",
+   "reqd": 1
+  },
+  {
+   "fieldname": "art_format",
+   "fieldtype": "Select",
+   "label": "Art Format",
+   "options": "\nAI\nEPS\nPDF\nPNG\nJPG\nSVG\nPSD"
+  },
+  {
+   "fieldname": "column_break_art",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "design_width_in",
+   "fieldtype": "Float",
+   "label": "Design Width (inches)"
+  },
+  {
+   "fieldname": "design_height_in",
+   "fieldtype": "Float",
+   "label": "Design Height (inches)"
+  },
+  {
+   "fieldname": "stitch_count_estimate",
+   "fieldtype": "Int",
+   "label": "Estimated Stitch Count"
+  },
+  {
+   "fieldname": "section_dst",
+   "fieldtype": "Section Break",
+   "label": "DST File"
+  },
+  {
+   "fieldname": "dst_file",
+   "fieldtype": "Attach",
+   "label": "DST Stitch File"
+  },
+  {
+   "fieldname": "dst_approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "dst_approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved On"
+  },
+  {
+   "fieldname": "column_break_dst",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "digitizer_name",
+   "fieldtype": "Data",
+   "label": "Digitizer Name"
+  },
+  {
+   "fieldname": "digitizing_software",
+   "fieldtype": "Select",
+   "label": "Digitizing Software",
+   "options": "\nWilcom EmbroideryStudio\nHatch Embroidery\nBrothcr PE-Design\nTajima DGML\nInkstitch"
+  },
+  {
+   "fieldname": "dst_version",
+   "fieldtype": "Data",
+   "label": "DST Version / Rev"
+  },
+  {
+   "fieldname": "section_workflow",
+   "fieldtype": "Section Break",
+   "label": "Workflow Timestamps"
+  },
+  {
+   "fieldname": "submitted_on",
+   "fieldtype": "Datetime",
+   "label": "Submitted On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submitted_by",
+   "fieldtype": "Link",
+   "label": "Submitted By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "digitizing_started_on",
+   "fieldtype": "Datetime",
+   "label": "Digitizing Started On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_sent_on",
+   "fieldtype": "Datetime",
+   "label": "Review Sent On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wf2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "released_on",
+   "fieldtype": "Datetime",
+   "label": "Released On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes & Revisions"
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection / Revision Reason"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "default": "0",
+   "fieldname": "revision_count",
+   "fieldtype": "Int",
+   "label": "Revision Count",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Digitizing Queue",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Manufacturing User",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {"color": "Yellow", "title": "Submitted"},
+  {"color": "Blue", "title": "Digitizing"},
+  {"color": "Purple", "title": "Review"},
+  {"color": "Green", "title": "Approved"},
+  {"color": "Green", "title": "Released"},
+  {"color": "Red", "title": "Rejected"},
+  {"color": "Gray", "title": "Cancelled"}
+ ],
+ "title_field": "name",
+ "track_changes": 1
+}

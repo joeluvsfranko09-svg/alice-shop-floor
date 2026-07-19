@@ -1,0 +1,293 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "recipe_name",
+  "decoration_method",
+  "is_active",
+  "naming_series",
+  "column_break_top",
+  "item_code",
+  "design_placement",
+  "notes",
+  "section_dtg",
+  "dtg_platen_size",
+  "dtg_pretreat_required",
+  "column_break_dtg",
+  "dtg_ink_profile",
+  "dtg_resolution",
+  "column_break_dtg2",
+  "dtg_cure_temp",
+  "dtg_cure_time",
+  "section_dtf",
+  "dtf_film_width",
+  "dtf_press_temp",
+  "column_break_dtf",
+  "dtf_dwell_time",
+  "dtf_pressure",
+  "column_break_dtf2",
+  "dtf_peel_type",
+  "dtf_film_type",
+  "section_emb",
+  "emb_dst_file",
+  "emb_stitch_count",
+  "column_break_emb",
+  "emb_needle_count",
+  "emb_hoop_size",
+  "column_break_emb2",
+  "emb_stabilizer_type",
+  "emb_thread_colors"
+ ],
+ "fields": [
+  {
+   "fieldname": "recipe_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Recipe Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "decoration_method",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Decoration Method",
+   "options": "DTG\nDTF\nEmbroidery",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "RECIPE-.decoration_method.-.#####"
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item (Optional)",
+   "options": "Item"
+  },
+  {
+   "fieldname": "design_placement",
+   "fieldtype": "Select",
+   "label": "Design Placement",
+   "options": "\nLeft Chest\nFull Front\nFull Back\nRight Chest\nLeft Sleeve\nRight Sleeve\nNeck Label\nHem\nCustom"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "collapsible": 0,
+   "depends_on": "eval:doc.decoration_method=='DTG'",
+   "fieldname": "section_dtg",
+   "fieldtype": "Section Break",
+   "label": "DTG Parameters — Kornit Apollo"
+  },
+  {
+   "fieldname": "dtg_platen_size",
+   "fieldtype": "Select",
+   "label": "Platen Size",
+   "options": "\nXS (10x8)\nS (14x16)\nM (16x18)\nL (20x24)\nXL (24x30)\nSleeve (4x14)"
+  },
+  {
+   "default": "0",
+   "fieldname": "dtg_pretreat_required",
+   "fieldtype": "Check",
+   "label": "Pretreatment Required"
+  },
+  {
+   "fieldname": "column_break_dtg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dtg_ink_profile",
+   "fieldtype": "Data",
+   "label": "Ink Profile / ICC"
+  },
+  {
+   "fieldname": "dtg_resolution",
+   "fieldtype": "Select",
+   "label": "Print Resolution",
+   "options": "\n600dpi\n1200dpi\n1200x600dpi"
+  },
+  {
+   "fieldname": "column_break_dtg2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "330",
+   "fieldname": "dtg_cure_temp",
+   "fieldtype": "Float",
+   "label": "Cure Temp (°F)"
+  },
+  {
+   "default": "180",
+   "fieldname": "dtg_cure_time",
+   "fieldtype": "Int",
+   "label": "Cure Time (sec)"
+  },
+  {
+   "collapsible": 0,
+   "depends_on": "eval:doc.decoration_method=='DTF'",
+   "fieldname": "section_dtf",
+   "fieldtype": "Section Break",
+   "label": "DTF Parameters — STAHLS' Fulfill Engine"
+  },
+  {
+   "fieldname": "dtf_film_width",
+   "fieldtype": "Float",
+   "label": "Film Width (inches)"
+  },
+  {
+   "default": "385",
+   "fieldname": "dtf_press_temp",
+   "fieldtype": "Float",
+   "label": "Press Temp (°F)"
+  },
+  {
+   "fieldname": "column_break_dtf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "12",
+   "fieldname": "dtf_dwell_time",
+   "fieldtype": "Int",
+   "label": "Dwell Time (sec)"
+  },
+  {
+   "fieldname": "dtf_pressure",
+   "fieldtype": "Select",
+   "label": "Press Pressure",
+   "options": "\nLight\nMedium\nHeavy"
+  },
+  {
+   "fieldname": "column_break_dtf2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Hot",
+   "fieldname": "dtf_peel_type",
+   "fieldtype": "Select",
+   "label": "Peel Type",
+   "options": "\nHot\nCold\nWarm"
+  },
+  {
+   "fieldname": "dtf_film_type",
+   "fieldtype": "Data",
+   "label": "Film Type / SKU"
+  },
+  {
+   "collapsible": 0,
+   "depends_on": "eval:doc.decoration_method=='Embroidery'",
+   "fieldname": "section_emb",
+   "fieldtype": "Section Break",
+   "label": "Embroidery Parameters — Tajima TMEF-H1506"
+  },
+  {
+   "fieldname": "emb_dst_file",
+   "fieldtype": "Attach",
+   "label": "DST Stitch File"
+  },
+  {
+   "fieldname": "emb_stitch_count",
+   "fieldtype": "Int",
+   "label": "Stitch Count"
+  },
+  {
+   "fieldname": "column_break_emb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "emb_needle_count",
+   "fieldtype": "Int",
+   "label": "Needles Used"
+  },
+  {
+   "fieldname": "emb_hoop_size",
+   "fieldtype": "Data",
+   "label": "Hoop Size"
+  },
+  {
+   "fieldname": "column_break_emb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "emb_stabilizer_type",
+   "fieldtype": "Select",
+   "label": "Stabilizer Type",
+   "options": "\nWoven Cutaway\nNon-Woven Cutaway\nTearaway\nWater-Soluble"
+  },
+  {
+   "fieldname": "emb_thread_colors",
+   "fieldtype": "Table",
+   "label": "Thread Color Map",
+   "options": "Embroidery Thread"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Production Recipe",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "recipe_name",
+ "track_changes": 1
+}

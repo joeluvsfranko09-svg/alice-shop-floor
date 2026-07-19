@@ -1,0 +1,96 @@
+{
+ "name": "Bin Pick List Item",
+ "doctype": "DocType",
+ "module": "Alice Shop Floor",
+ "description": "Child table row for a piece-level pick task within a Sewing Bin Assignment. Drives the picker tablet virtual light-assist display.",
+ "istable": 1,
+ "field_order": [
+  "piece_type","storage_location","rack","slot","col_break_1",
+  "qty_required","qty_picked","status",
+  "picked_by","picked_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "piece_type",
+   "fieldtype": "Data",
+   "label": "Piece / Operation",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "e.g. Front Panel, Back Panel, Collar, Sleeve L, Sleeve R"
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Link",
+   "label": "Storage Location",
+   "options": "Piece Storage Location",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rack",
+   "fieldtype": "Data",
+   "label": "Rack",
+   "fetch_from": "storage_location.rack",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "slot",
+   "fieldtype": "Int",
+   "label": "Slot",
+   "fetch_from": "storage_location.slot",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qty_required",
+   "fieldtype": "Float",
+   "label": "Qty Required",
+   "default": "1",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "qty_picked",
+   "fieldtype": "Float",
+   "label": "Qty Picked",
+   "default": "0",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nPicked\nShort",
+   "default": "Pending",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "picked_by",
+   "fieldtype": "Link",
+   "label": "Picked By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "picked_at",
+   "fieldtype": "Datetime",
+   "label": "Picked At",
+   "read_only": 1
+  }
+ ],
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "creation": "2026-05-13 00:00:00",
+ "modified": "2026-05-13 00:00:00",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "actions": [],
+ "links": []
+}

@@ -1,0 +1,38 @@
+{
+ "name": "Press Inspection Config",
+ "doctype": "DocType",
+ "module": "Alice Shop Floor",
+ "description": "Configuration for V6 Press QC Inspector. Defines the Cognex camera endpoint near the press machine, confidence threshold, and press defect tolerance levels.",
+ "issingle": 1,
+ "field_order": [
+  "cognex_section","cognex_host","cognex_port","cognex_job_name","col_break_1","cognex_username","cognex_password",
+  "poll_section","poll_interval_seconds","max_poll_attempts","col_break_2","enabled",
+  "thresholds_section","confidence_threshold","max_scorch_allowed","max_shine_allowed","max_crease_miss_allowed","fail_on_any_burn"
+ ],
+ "fields": [
+  {"fieldname":"cognex_section","fieldtype":"Section Break","label":"Cognex Camera (Press)"},
+  {"fieldname":"cognex_host","fieldtype":"Data","label":"Camera Host / IP","description":"IP or hostname of the Cognex In-Sight camera near the press machine","reqd":1},
+  {"fieldname":"cognex_port","fieldtype":"Int","label":"Port","default":"80"},
+  {"fieldname":"cognex_job_name","fieldtype":"Data","label":"Cognex Job Name","description":"Job file loaded on the camera for press quality inspection"},
+  {"fieldname":"col_break_1","fieldtype":"Column Break"},
+  {"fieldname":"cognex_username","fieldtype":"Data","label":"Username","default":"admin"},
+  {"fieldname":"cognex_password","fieldtype":"Password","label":"Password"},
+  {"fieldname":"poll_section","fieldtype":"Section Break","label":"Polling"},
+  {"fieldname":"poll_interval_seconds","fieldtype":"Int","label":"Poll Interval (sec)","default":"30","description":"How often to poll Cognex for press result"},
+  {"fieldname":"max_poll_attempts","fieldtype":"Int","label":"Max Poll Attempts","default":"20","description":"Give up after N attempts with no result"},
+  {"fieldname":"col_break_2","fieldtype":"Column Break"},
+  {"fieldname":"enabled","fieldtype":"Check","label":"V6 Press QC Enabled","default":"1"},
+  {"fieldname":"thresholds_section","fieldtype":"Section Break","label":"Defect Thresholds"},
+  {"fieldname":"confidence_threshold","fieldtype":"Float","label":"Min Confidence Score","default":"0.80","description":"Cognex detections below this score are ignored"},
+  {"fieldname":"max_scorch_allowed","fieldtype":"Int","label":"Max Scorch Marks","default":"0","description":"0 = any scorch = Fail"},
+  {"fieldname":"max_shine_allowed","fieldtype":"Int","label":"Max Shine Marks","default":"2","description":"Shine = over-pressed sheen on fabric"},
+  {"fieldname":"max_crease_miss_allowed","fieldtype":"Int","label":"Max Crease Misses","default":"1"},
+  {"fieldname":"fail_on_any_burn","fieldtype":"Check","label":"Fail on Any Burn Mark","default":"1"}
+ ],
+ "permissions": [
+  {"role":"System Manager","read":1,"write":1},
+  {"role":"Shop Floor Supervisor","read":1,"write":1}
+ ],
+ "creation":"2026-05-13 00:00:00","modified":"2026-05-13 00:00:00",
+ "modified_by":"Administrator","owner":"Administrator","actions":[],"links":[]
+}

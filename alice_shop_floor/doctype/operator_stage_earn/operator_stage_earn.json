@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "stage",
+  "pieces_touched",
+  "col_break_1",
+  "avg_minutes_per_piece",
+  "section_qc",
+  "qc_pass",
+  "qc_fail",
+  "col_break_2",
+  "defect_minor",
+  "defect_major",
+  "defect_critical",
+  "section_pay",
+  "base_pay",
+  "quality_bonus",
+  "col_break_3",
+  "speed_bonus",
+  "defect_penalty",
+  "stage_total"
+ ],
+ "fields": [
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Fabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "pieces_touched",
+   "fieldtype": "Int",
+   "label": "Pieces",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "avg_minutes_per_piece",
+   "fieldtype": "Float",
+   "label": "Avg Min / Piece",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "section_qc",
+   "fieldtype": "Section Break",
+   "label": "QC"
+  },
+  {
+   "fieldname": "qc_pass",
+   "fieldtype": "Int",
+   "label": "QC Pass",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "qc_fail",
+   "fieldtype": "Int",
+   "label": "QC Fail",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "defect_minor",
+   "fieldtype": "Int",
+   "label": "Minor Defects"
+  },
+  {
+   "fieldname": "defect_major",
+   "fieldtype": "Int",
+   "label": "Major Defects"
+  },
+  {
+   "fieldname": "defect_critical",
+   "fieldtype": "Int",
+   "label": "Critical Defects"
+  },
+  {
+   "fieldname": "section_pay",
+   "fieldtype": "Section Break",
+   "label": "Pay Breakdown"
+  },
+  {
+   "fieldname": "base_pay",
+   "fieldtype": "Currency",
+   "label": "Base Pay",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "quality_bonus",
+   "fieldtype": "Currency",
+   "label": "Quality Bonus"
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "speed_bonus",
+   "fieldtype": "Currency",
+   "label": "Speed Bonus"
+  },
+  {
+   "fieldname": "defect_penalty",
+   "fieldtype": "Currency",
+   "label": "Defect Penalty"
+  },
+  {
+   "fieldname": "stage_total",
+   "fieldtype": "Currency",
+   "label": "Stage Total",
+   "in_list_view": 1,
+   "columns": 2,
+   "bold": 1,
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Operator Stage Earn",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "stage",
+ "sort_order": "ASC",
+ "track_changes": 0
+}

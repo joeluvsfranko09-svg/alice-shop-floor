@@ -1,0 +1,71 @@
+{
+  "name": "SanMar Stock Cache",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 0,
+  "autoname": "field:sanmar_sku",
+  "title_field": "sanmar_sku",
+  "description": "Rolling cache of SanMar live inventory. Refreshed every 30 min by the stock cache task. Read by stock_lookup.py before making a live API call.",
+  "fields": [
+    {
+      "fieldname": "sanmar_sku",
+      "fieldtype": "Data",
+      "label": "SanMar SKU",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sanmar_style",
+      "fieldtype": "Data",
+      "label": "Style",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "color_name",
+      "fieldtype": "Data",
+      "label": "Color",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "fit_code",
+      "fieldtype": "Data",
+      "label": "Fit Code",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "total_qty",
+      "fieldtype": "Int",
+      "label": "Total Qty",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "stock_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "In Stock\nLow Stock\nOut of Stock\nBackordered",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "warehouse_json",
+      "fieldtype": "Small Text",
+      "label": "Per-DC Breakdown (JSON)"
+    },
+    {
+      "fieldname": "cached_at",
+      "fieldtype": "Datetime",
+      "label": "Cached At",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "expires_at",
+      "fieldtype": "Datetime",
+      "label": "Expires At"
+    }
+  ],
+  "permissions": [
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "Manufacturing Manager", "read": 1},
+    {"role": "Manufacturing User",    "read": 1}
+  ]
+}

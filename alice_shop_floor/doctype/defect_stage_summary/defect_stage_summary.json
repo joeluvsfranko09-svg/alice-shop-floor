@@ -1,0 +1,20 @@
+{
+  "name": "Defect Stage Summary",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "istable": 1,
+  "fields": [
+    {"fieldname": "stage",          "fieldtype": "Select",  "label": "Stage",          "in_list_view": 1,
+     "options": "Fabric Inspection\nCutting\nSewing\nFinal QC"},
+    {"fieldname": "source_doctype", "fieldtype": "Data",    "label": "Source DocType", "in_list_view": 1},
+    {"fieldname": "total_inspected","fieldtype": "Int",     "label": "Inspected",      "in_list_view": 1},
+    {"fieldname": "total_passed",   "fieldtype": "Int",     "label": "Passed",         "in_list_view": 1},
+    {"fieldname": "total_failed",   "fieldtype": "Int",     "label": "Failed",         "in_list_view": 1},
+    {"fieldname": "pass_rate_pct",  "fieldtype": "Float",   "label": "Pass Rate %",    "in_list_view": 1},
+    {"fieldname": "defects_minor",  "fieldtype": "Int",     "label": "Minor Defects"},
+    {"fieldname": "defects_major",  "fieldtype": "Int",     "label": "Major Defects"},
+    {"fieldname": "defects_critical","fieldtype": "Int",    "label": "Critical Defects"},
+    {"fieldname": "top_defect_type","fieldtype": "Data",    "label": "Top Defect Type"}
+  ],
+  "permissions": []
+}

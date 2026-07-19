@@ -1,0 +1,154 @@
+{
+  "name": "SanMar Style Map",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 0,
+  "autoname": "field:sanmar_sku",
+  "title_field": "sanmar_sku",
+  "search_fields": "sanmar_style,color_name,erpnext_item",
+  "track_changes": 1,
+  "description": "Maps a SanMar style + color + fit combination to an ERPNext Item.",
+  "fields": [
+    {
+      "fieldname": "sanmar_section",
+      "fieldtype": "Section Break",
+      "label": "SanMar Identity"
+    },
+    {
+      "fieldname": "sanmar_sku",
+      "fieldtype": "Data",
+      "label": "SanMar SKU",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1,
+      "description": "SanMar unique SKU — typically STYLE-COLOR-SIZE e.g. PC61-Red-M"
+    },
+    {
+      "fieldname": "sanmar_style",
+      "fieldtype": "Data",
+      "label": "Style Number",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_filter": 1,
+      "description": "e.g. PC61, DT6000, ST650"
+    },
+    {
+      "fieldname": "color_name",
+      "fieldtype": "Data",
+      "label": "Color Name",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "SanMar catalog color name e.g. Red, Athletic Heather"
+    },
+    {
+      "fieldname": "color_code",
+      "fieldtype": "Data",
+      "label": "Color Code"
+    },
+    {
+      "fieldname": "cb1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "fit_code",
+      "fieldtype": "Data",
+      "label": "Fit Code",
+      "description": "SanMar fit/size code — XS S M L XL 2XL 3XL etc. (ZAZFIT calls these 'fits', not sizes)"
+    },
+    {
+      "fieldname": "brand_name",
+      "fieldtype": "Data",
+      "label": "Brand",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "product_name",
+      "fieldtype": "Data",
+      "label": "Product Name"
+    },
+    {
+      "fieldname": "erpnext_section",
+      "fieldtype": "Section Break",
+      "label": "ERPNext Mapping"
+    },
+    {
+      "fieldname": "erpnext_item",
+      "fieldtype": "Link",
+      "label": "ERPNext Item",
+      "options": "Item",
+      "in_list_view": 1,
+      "description": "The ERPNext Item this SanMar SKU maps to"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "cb2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "net_price",
+      "fieldtype": "Currency",
+      "label": "SanMar Net Price",
+      "read_only": 1,
+      "description": "Last synced net price from SanMar pricing API"
+    },
+    {
+      "fieldname": "case_price",
+      "fieldtype": "Currency",
+      "label": "Case Price",
+      "read_only": 1
+    },
+    {
+      "fieldname": "price_synced_at",
+      "fieldtype": "Datetime",
+      "label": "Price Last Synced",
+      "read_only": 1
+    },
+    {
+      "fieldname": "stock_section",
+      "fieldtype": "Section Break",
+      "label": "Last Known Stock"
+    },
+    {
+      "fieldname": "last_known_qty",
+      "fieldtype": "Int",
+      "label": "Last Known Qty",
+      "read_only": 1
+    },
+    {
+      "fieldname": "stock_status",
+      "fieldtype": "Select",
+      "label": "Stock Status",
+      "options": "\nIn Stock\nLow Stock\nOut of Stock\nBackordered",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "cb3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "stock_checked_at",
+      "fieldtype": "Datetime",
+      "label": "Stock Last Checked",
+      "read_only": 1
+    },
+    {
+      "fieldname": "warehouse_breakdown",
+      "fieldtype": "Small Text",
+      "label": "Warehouse Qty Breakdown (JSON)",
+      "read_only": 1,
+      "description": "Raw JSON from SanMar inventory API — per-DC quantities"
+    }
+  ],
+  "permissions": [
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "Manufacturing User",    "read": 1}
+  ]
+}

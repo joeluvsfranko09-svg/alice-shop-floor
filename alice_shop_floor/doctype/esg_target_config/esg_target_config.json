@@ -1,0 +1,26 @@
+{
+  "name": "ESG Target Config",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 1,
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "material_section",    "fieldtype": "Section Break", "label": "Material Waste"},
+    {"fieldname": "max_waste_pct",       "fieldtype": "Float", "label": "Max Waste % per WO",       "default": "5.0"},
+    {"fieldname": "target_fabric_yield_pct","fieldtype": "Float","label":"Target Fabric Yield %",   "default": "95.0"},
+    {"fieldname": "water_section",       "fieldtype": "Section Break", "label": "Water Usage"},
+    {"fieldname": "max_water_litres_per_garment","fieldtype": "Float","label": "Max Water L per Garment","default": "50.0"},
+    {"fieldname": "energy_section",      "fieldtype": "Section Break", "label": "Energy"},
+    {"fieldname": "max_kwh_per_garment", "fieldtype": "Float", "label": "Max kWh per Garment",       "default": "2.0"},
+    {"fieldname": "carbon_section",      "fieldtype": "Section Break", "label": "Carbon"},
+    {"fieldname": "max_co2_kg_per_garment","fieldtype": "Float","label": "Max CO₂ kg per Garment",  "default": "1.5"},
+    {"fieldname": "kwh_to_co2_factor",   "fieldtype": "Float", "label": "kWh → CO₂ Factor (kg)",    "default": "0.233"},
+    {"fieldname": "reporting_section",   "fieldtype": "Section Break", "label": "Reporting"},
+    {"fieldname": "report_period",       "fieldtype": "Select","label": "Default Report Period",
+     "options": "Weekly\nMonthly\nQuarterly", "default": "Weekly"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1},
+    {"role": "System Manager",        "read": 1, "write": 1}
+  ]
+}

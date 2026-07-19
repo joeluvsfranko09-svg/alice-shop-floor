@@ -1,0 +1,313 @@
+{
+  "name": "Machine Config",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "description": "Physical decoration machine — IP address, protocol, credentials, and driver type. One record per machine on the shop floor.",
+  "autoname": "field:machine_name",
+  "title_field": "machine_name",
+  "track_changes": 1,
+  "is_submittable": 0,
+  "fields": [
+    {
+      "fieldname": "machine_name",
+      "label": "Machine Name",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "e.g. Epson-DTF-01, Melco-EMB-01"
+    },
+    {
+      "fieldname": "decoration_method",
+      "label": "Decoration Method",
+      "fieldtype": "Select",
+      "options": "\nDTF\nDTG\nEmbroidery",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "driver_type",
+      "label": "Driver Type",
+      "fieldtype": "Select",
+      "options": "\nEpsonEdgePrint\nMelcoOS\nPneumaticPress\nHotFolder\nTCPSocket\nKornit\nSTAHLS\nTajima\nCustom",
+      "reqd": 1,
+      "description": "Determines which Python driver class handles communication. PneumaticPress = non-networked press station (validates params + logs events only)."
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "is_active",
+      "label": "Active",
+      "fieldtype": "Check",
+      "default": "1",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "is_default",
+      "label": "Default for Method",
+      "fieldtype": "Check",
+      "default": "0",
+      "description": "If checked, this machine is auto-selected when routing jobs for this decoration method. Do NOT check for PneumaticPress — the press is dispatched explicitly as step 3 of the DTF workflow, not auto-routed."
+    },
+    {
+      "fieldname": "network_section",
+      "label": "Network",
+      "fieldtype": "Section Break",
+      "depends_on": "eval:!['PneumaticPress','EpsonEdgePrint'].includes(doc.driver_type)"
+    },
+    {
+      "fieldname": "host",
+      "label": "Host / IP Address",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "depends_on": "eval:!['PneumaticPress','EpsonEdgePrint'].includes(doc.driver_type)",
+      "description": "Machine hostname or IP address. Used for FTP connection (MelcoOS) and TCP socket drivers. Not required for EpsonEdgePrint (hot folder) or PneumaticPress (non-networked)."
+    },
+    {
+      "fieldname": "port",
+      "label": "Port",
+      "fieldtype": "Int",
+      "depends_on": "eval:!['PneumaticPress','EpsonEdgePrint'].includes(doc.driver_type)",
+      "description": "Leave blank to use driver default. Melco FTP: 21."
+    },
+    {
+      "fieldname": "col_break_2",
+      "fieldtype": "Column Break",
+      "depends_on": "eval:!['PneumaticPress','EpsonEdgePrint'].includes(doc.driver_type)"
+    },
+    {
+      "fieldname": "use_https",
+      "label": "Use HTTPS",
+      "fieldtype": "Check",
+      "default": "0",
+      "depends_on": "eval:['Custom','Kornit','STAHS','Tajima'].includes(doc.driver_type)"
+    },
+    {
+      "fieldname": "timeout_seconds",
+      "label": "Timeout (seconds)",
+      "fieldtype": "Int",
+      "default": "30"
+    },
+    {
+      "fieldname": "auth_section",
+      "label": "Authentication",
+      "fieldtype": "Section Break",
+      "collapsible": 1,
+      "depends_on": "eval:!['PneumaticPress','EpsonEdgePrint'].includes(doc.driver_type)"
+    },
+    {
+      "fieldname": "auth_type",
+      "label": "Auth Type",
+      "fieldtype": "Select",
+      "options": "\nNone\nBasic\nBearer Token\nAPI Key",
+      "default": "None"
+    },
+    {
+      "fieldname": "username",
+      "label": "Username",
+      "fieldtype": "Data",
+      "depends_on": "eval:doc.auth_type=='Basic'"
+    },
+    {
+      "fieldname": "password",
+      "label": "Password",
+      "fieldtype": "Password",
+      "depends_on": "eval:doc.auth_type=='Basic'"
+    },
+    {
+      "fieldname": "col_break_3",
+      "fieldtype": "Column Break",
+      "depends_on": "eval:doc.auth_type in ['Bearer Token','API Key']"
+    },
+    {
+      "fieldname": "api_key",
+      "label": "API Key / Bearer Token",
+      "fieldtype": "Password",
+      "depends_on": "eval:doc.auth_type in ['Bearer Token','API Key']"
+    },
+    {
+      "fieldname": "epson_section",
+      "label": "Epson Edge Print Settings",
+      "fieldtype": "Section Break",
+      "collapsible": 1,
+      "depends_on": "eval:doc.driver_type=='EpsonEdgePrint'"
+    },
+    {
+      "fieldname": "epson_printer_id",
+      "label": "Printer ID",
+      "fieldtype": "Data",
+      "description": "Printer identifier within Epson Edge Print (if multi-printer setup)",
+      "depends_on": "eval:doc.driver_type=='EpsonEdgePrint'"
+    },
+    {
+      "fieldname": "col_break_4",
+      "fieldtype": "Column Break",
+      "depends_on": "eval:doc.driver_type=='EpsonEdgePrint'"
+    },
+    {
+      "fieldname": "epson_hot_folder_path",
+      "label": "Hot Folder Path",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "description": "Windows path or UNC share to the Edge Print hot folder directory. e.g. \\\\192.168.1.50\\SharedPrint\\hotfolder or C:\\EdgePrint\\HotFolder. Edge Print must be pre-configured to watch this folder with Auto Print ON.",
+      "depends_on": "eval:doc.driver_type=='EpsonEdgePrint'"
+    },
+    {
+      "fieldname": "melco_section",
+      "label": "Melco OS Settings",
+      "fieldtype": "Section Break",
+      "collapsible": 1,
+      "depends_on": "eval:doc.driver_type=='MelcoOS'"
+    },
+    {
+      "fieldname": "melco_machine_id",
+      "label": "Machine ID",
+      "fieldtype": "Data",
+      "description": "Melco OS machine identifier (shown in Melco OS dashboard)",
+      "depends_on": "eval:doc.driver_type=='MelcoOS'"
+    },
+    {
+      "fieldname": "melco_ftp_dir",
+      "label": "FTP Job Directory",
+      "fieldtype": "Data",
+      "default": "/jobs",
+      "description": "Directory on Melco machine to drop DST/JEF files via FTP",
+      "depends_on": "eval:doc.driver_type=='MelcoOS'"
+    },
+    {
+      "fieldname": "col_break_5",
+      "fieldtype": "Column Break",
+      "depends_on": "eval:doc.driver_type=='MelcoOS'"
+    },
+    {
+      "fieldname": "melco_supported_formats",
+      "label": "Supported File Formats",
+      "fieldtype": "Select",
+      "options": "DST\nJEF\nEMB\nDST,JEF\nDST,JEF,EMB",
+      "default": "DST",
+      "depends_on": "eval:doc.driver_type=='MelcoOS'"
+    },
+    {
+      "fieldname": "melco_hoop_size",
+      "label": "Hoop Size Installed",
+      "fieldtype": "Data",
+      "default": "12x8",
+      "description": "Hoop frame currently fitted on this machine head — e.g. 12x8, 10x6, 6x6, 14x14. Used to filter machine selection by job hoop requirements. Update when the operator changes frames.",
+      "depends_on": "eval:doc.driver_type=='MelcoOS'"
+    },
+    {
+      "fieldname": "melco_head_count",
+      "label": "Head Count",
+      "fieldtype": "Int",
+      "default": "1",
+      "description": "Number of embroidery heads on this machine (1 for single-head Summit, 2+ for multi-head models).",
+      "depends_on": "eval:doc.driver_type=='MelcoOS'"
+    },
+    {
+      "fieldname": "hotfolder_section",
+      "label": "Hot Folder Settings",
+      "fieldtype": "Section Break",
+      "collapsible": 1,
+      "depends_on": "eval:doc.driver_type=='HotFolder'"
+    },
+    {
+      "fieldname": "hot_folder_path",
+      "label": "Hot Folder Path",
+      "fieldtype": "Data",
+      "description": "UNC or local path the machine monitors. Files dropped here are auto-printed.",
+      "depends_on": "eval:doc.driver_type=='HotFolder'"
+    },
+    {
+      "fieldname": "press_section",
+      "label": "Pneumatic Press Settings",
+      "fieldtype": "Section Break",
+      "collapsible": 1,
+      "depends_on": "eval:doc.driver_type=='PneumaticPress'"
+    },
+    {
+      "fieldname": "press_station_label",
+      "label": "Station Label",
+      "fieldtype": "Data",
+      "default": "DTF Transfer Press",
+      "description": "Display label shown to operators on the floor view (e.g. 'Press Station 1')",
+      "depends_on": "eval:doc.driver_type=='PneumaticPress'"
+    },
+    {
+      "fieldname": "press_default_temp_f",
+      "label": "Default Temp (°F)",
+      "fieldtype": "Float",
+      "default": "385",
+      "description": "Override the driver default of 385°F. Safe range: 300–420°F.",
+      "depends_on": "eval:doc.driver_type=='PneumaticPress'"
+    },
+    {
+      "fieldname": "col_break_press",
+      "fieldtype": "Column Break",
+      "depends_on": "eval:doc.driver_type=='PneumaticPress'"
+    },
+    {
+      "fieldname": "press_default_dwell_sec",
+      "label": "Default Dwell (sec)",
+      "fieldtype": "Int",
+      "default": "12",
+      "description": "Override the driver default of 12s. Safe range: 8–20s.",
+      "depends_on": "eval:doc.driver_type=='PneumaticPress'"
+    },
+    {
+      "fieldname": "press_default_psi",
+      "label": "Default Pressure (PSI)",
+      "fieldtype": "Int",
+      "default": "50",
+      "description": "Override the driver default of 50 PSI. Safe range: 30–80 PSI.",
+      "depends_on": "eval:doc.driver_type=='PneumaticPress'"
+    },
+    {
+      "fieldname": "status_section",
+      "label": "Last Known Status",
+      "fieldtype": "Section Break",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "last_ping_at",
+      "label": "Last Ping",
+      "fieldtype": "Datetime",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_ping_status",
+      "label": "Ping Status",
+      "fieldtype": "Select",
+      "options": "\nOnline\nOffline\nError",
+      "read_only": 1
+    },
+    {
+      "fieldname": "col_break_6",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "last_job_sent_at",
+      "label": "Last Job Sent",
+      "fieldtype": "Datetime",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_jobs_sent",
+      "label": "Total Jobs Sent",
+      "fieldtype": "Int",
+      "default": "0",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Small Text"
+    }
+  ],
+  "permissions": [
+    { "role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1, "delete": 1 },
+    { "role": "Manufacturing User",    "read": 1 },
+    { "role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1 }
+  ]
+}

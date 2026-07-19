@@ -1,0 +1,56 @@
+[
+  {
+    "doctype": "Workstation",
+    "name": "DTG Station",
+    "workstation_name": "DTG Station",
+    "description": "Kornit Apollo Direct-to-Garment printer. Throughput: ~400 garments/hr at standard resolution. Integrated with PrintFactory RIP software (acquired by Kornit Digital, April 2026). Kornit Xdi ink system.",
+    "production_capacity": 400,
+    "hour_rate": 0.0,
+    "holiday_list": null,
+    "working_hours": [
+      {"enabled": 1, "day_of_week": "Monday",    "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Tuesday",   "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Wednesday", "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Thursday",  "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Friday",    "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 0, "day_of_week": "Saturday",  "start_time": "08:00:00", "end_time": "14:00:00"},
+      {"enabled": 0, "day_of_week": "Sunday",    "start_time": "08:00:00", "end_time": "14:00:00"}
+    ]
+  },
+  {
+    "doctype": "Workstation",
+    "name": "DTF Heat Press",
+    "workstation_name": "DTF Heat Press",
+    "description": "STAHLS' Fulfill Engine DTF heat press station. Standard settings: 385°F / 12 seconds / hot-peel. Scan-to-print QR workflow — operator scans bin QR to retrieve design file and recipe parameters.",
+    "production_capacity": 200,
+    "hour_rate": 0.0,
+    "holiday_list": null,
+    "working_hours": [
+      {"enabled": 1, "day_of_week": "Monday",    "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Tuesday",   "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Wednesday", "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Thursday",  "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Friday",    "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 0, "day_of_week": "Saturday",  "start_time": "08:00:00", "end_time": "14:00:00"},
+      {"enabled": 0, "day_of_week": "Sunday",    "start_time": "08:00:00", "end_time": "14:00:00"}
+    ]
+  },
+  {
+    "doctype": "Workstation",
+    "name": "Embroidery Station",
+    "workstation_name": "Embroidery Station",
+    "description": "Tajima TMEF-H1506 commercial embroidery machine. 15-needle head. Madeira and Isacord thread standards. DST stitch file format required. DigitizingQueue gate: Job Card cannot start until DST file is Approved/Released.",
+    "production_capacity": 60,
+    "hour_rate": 0.0,
+    "holiday_list": null,
+    "working_hours": [
+      {"enabled": 1, "day_of_week": "Monday",    "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Tuesday",   "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Wednesday", "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Thursday",  "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 1, "day_of_week": "Friday",    "start_time": "07:00:00", "end_time": "19:00:00"},
+      {"enabled": 0, "day_of_week": "Saturday",  "start_time": "08:00:00", "end_time": "14:00:00"},
+      {"enabled": 0, "day_of_week": "Sunday",    "start_time": "08:00:00", "end_time": "14:00:00"}
+    ]
+  }
+]

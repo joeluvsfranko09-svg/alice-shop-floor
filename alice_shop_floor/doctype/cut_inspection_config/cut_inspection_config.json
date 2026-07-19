@@ -1,0 +1,103 @@
+{
+  "name": "Cut Inspection Config",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 1,
+  "fields": [
+    {
+      "fieldname": "cognex_host",
+      "fieldtype": "Data",
+      "label": "Cognex In-Sight Host / IP",
+      "reqd": 1,
+      "default": "192.168.1.100"
+    },
+    {
+      "fieldname": "cognex_port",
+      "fieldtype": "Int",
+      "label": "Cognex REST Port",
+      "default": 80,
+      "reqd": 1
+    },
+    {
+      "fieldname": "cognex_job_name",
+      "fieldtype": "Data",
+      "label": "Cognex Job Name",
+      "default": "cut_accuracy"
+    },
+    {
+      "fieldname": "cognex_username",
+      "fieldtype": "Data",
+      "label": "Cognex Username",
+      "default": "admin"
+    },
+    {
+      "fieldname": "cognex_password",
+      "fieldtype": "Password",
+      "label": "Cognex Password"
+    },
+    {
+      "fieldname": "section_tolerances",
+      "fieldtype": "Section Break",
+      "label": "Dimensional Tolerances"
+    },
+    {
+      "fieldname": "length_tolerance_mm",
+      "fieldtype": "Float",
+      "label": "Length Tolerance (mm)",
+      "default": 3.0,
+      "description": "Max allowed deviation from DXF pattern length"
+    },
+    {
+      "fieldname": "width_tolerance_mm",
+      "fieldtype": "Float",
+      "label": "Width Tolerance (mm)",
+      "default": 3.0
+    },
+    {
+      "fieldname": "angle_tolerance_degrees",
+      "fieldtype": "Float",
+      "label": "Angle Tolerance (degrees)",
+      "default": 1.5,
+      "description": "Max allowed angle deviation on seam edges"
+    },
+    {
+      "fieldname": "fail_on_any_critical",
+      "fieldtype": "Check",
+      "label": "Fail on Any Critical Deviation",
+      "default": 1
+    },
+    {
+      "fieldname": "max_minor_deviations",
+      "fieldtype": "Int",
+      "label": "Max Minor Deviations (Pass)",
+      "default": 3
+    },
+    {
+      "fieldname": "max_major_deviations",
+      "fieldtype": "Int",
+      "label": "Max Major Deviations (Pass)",
+      "default": 1
+    },
+    {
+      "fieldname": "section_polling",
+      "fieldtype": "Section Break",
+      "label": "Polling"
+    },
+    {
+      "fieldname": "poll_interval_seconds",
+      "fieldtype": "Int",
+      "label": "Poll Interval (seconds)",
+      "default": 10
+    },
+    {
+      "fieldname": "max_poll_attempts",
+      "fieldtype": "Int",
+      "label": "Max Poll Attempts Before Timeout",
+      "default": 30
+    }
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1},
+    {"role": "System Manager", "read": 1, "write": 1}
+  ]
+}

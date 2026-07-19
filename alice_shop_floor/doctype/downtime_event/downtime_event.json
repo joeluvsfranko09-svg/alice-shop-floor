@@ -1,0 +1,35 @@
+{
+  "name": "Downtime Event",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:DTE-{stage}-{YYYY}-{##}",
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "work_order",      "fieldtype": "Link",     "label": "Work Order",    "options": "Work Order",  "in_list_view": 1},
+    {"fieldname": "stage",           "fieldtype": "Select",   "label": "Stage",         "in_list_view": 1, "reqd": 1,
+     "options": "Fabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack\nGeneral"},
+    {"fieldname": "machine_id",      "fieldtype": "Data",     "label": "Machine / Station ID"},
+    {"fieldname": "operator",        "fieldtype": "Link",     "label": "Operator",      "options": "Employee"},
+    {"fieldname": "started_at",      "fieldtype": "Datetime", "label": "Started At",    "reqd": 1},
+    {"fieldname": "ended_at",        "fieldtype": "Datetime", "label": "Ended At"},
+    {"fieldname": "duration_minutes","fieldtype": "Float",    "label": "Duration (min)", "in_list_view": 1},
+    {"fieldname": "cause_section",   "fieldtype": "Section Break", "label": "Cause"},
+    {"fieldname": "reported_cause",  "fieldtype": "Small Text","label": "Reported Cause (free text)"},
+    {"fieldname": "cause_category",  "fieldtype": "Link",     "label": "Cause Category","options": "Downtime Cause Category", "in_list_view": 1},
+    {"fieldname": "root_cause_group","fieldtype": "Select",   "label": "Root Cause Group", "in_list_view": 1,
+     "options": "Machine\nOperator\nMaterial\nProcess\nExternal\nUnknown"},
+    {"fieldname": "ai_classified",   "fieldtype": "Check",    "label": "AI Classified"},
+    {"fieldname": "ai_confidence",   "fieldtype": "Float",    "label": "AI Confidence Score"},
+    {"fieldname": "resolution_section","fieldtype": "Section Break", "label": "Resolution"},
+    {"fieldname": "resolution_notes","fieldtype": "Small Text","label": "Resolution Notes"},
+    {"fieldname": "resolved_by",     "fieldtype": "Link",     "label": "Resolved By",   "options": "User"},
+    {"fieldname": "recommended_action","fieldtype": "Small Text","label": "Recommended Action"},
+    {"fieldname": "is_recurring",    "fieldtype": "Check",    "label": "Recurring Issue"},
+    {"fieldname": "recurrence_count","fieldtype": "Int",      "label": "Recurrence Count (30d)", "default": "0"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing User",    "read": 1, "write": 1, "create": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

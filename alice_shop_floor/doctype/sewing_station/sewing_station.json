@@ -1,0 +1,70 @@
+{
+  "name": "Sewing Station",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "description": "A physical sewing station / bin on the shop floor. Each station has one machine type that must match the BOM operation requirement.",
+  "fields": [
+    {
+      "fieldname": "station_code",
+      "fieldtype": "Data",
+      "label": "Station Code",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "Short label shown on the floor, e.g. S-01, BIN-3"
+    },
+    {
+      "fieldname": "station_name",
+      "fieldtype": "Data",
+      "label": "Station Name",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "machine_type",
+      "fieldtype": "Link",
+      "label": "Machine Type",
+      "options": "Workstation",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "ERPNext Workstation — must match the BOM Operation workstation for the WO to be assignable here"
+    },
+    {
+      "fieldname": "machine_id",
+      "fieldtype": "Data",
+      "label": "Machine ID / Asset Tag",
+      "in_list_view": 0,
+      "description": "Physical asset tag or serial number of the machine at this station"
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "default_operator",
+      "fieldtype": "Link",
+      "label": "Default Operator",
+      "options": "Employee",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": "1",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "location_notes",
+      "fieldtype": "Small Text",
+      "label": "Location / Notes"
+    }
+  ],
+  "title_field": "station_code",
+  "sort_field": "station_code",
+  "sort_order": "ASC",
+  "autoname": "field:station_code",
+  "permissions": [
+    {"role": "Manufacturing User",    "read": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

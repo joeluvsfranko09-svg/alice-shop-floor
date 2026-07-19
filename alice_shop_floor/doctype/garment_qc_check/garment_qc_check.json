@@ -1,0 +1,202 @@
+{
+ "actions": [],
+ "autoname": "format:QC-{work_order}-{##}",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "tracker",
+  "work_order",
+  "col_break_1",
+  "qc_stage",
+  "result",
+  "section_inspector",
+  "checked_by",
+  "col_break_2",
+  "checked_at",
+  "trigger_source",
+  "section_defects",
+  "defects",
+  "section_media",
+  "photo_ref",
+  "col_break_3",
+  "pattern_ref",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "tracker",
+   "fieldtype": "Link",
+   "label": "Tracker",
+   "options": "Production Stage Tracker",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qc_stage",
+   "fieldtype": "Select",
+   "label": "QC Stage",
+   "options": "Fabric Inspection\nPost-Cutting\nPost-Sewing\nFinal QC",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "result",
+   "fieldtype": "Select",
+   "label": "Result",
+   "options": "Pass\nFail\nRework Required",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "section_inspector",
+   "fieldtype": "Section Break",
+   "label": "Inspector"
+  },
+  {
+   "fieldname": "checked_by",
+   "fieldtype": "Link",
+   "label": "Checked By",
+   "options": "User",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "checked_at",
+   "fieldtype": "Datetime",
+   "label": "Checked At",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "trigger_source",
+   "fieldtype": "Select",
+   "label": "Trigger Source",
+   "options": "Manual\nALICE Vision\nALICE Auto",
+   "reqd": 1,
+   "in_standard_filter": 1,
+   "default": "Manual"
+  },
+  {
+   "fieldname": "section_defects",
+   "fieldtype": "Section Break",
+   "label": "Defects",
+   "depends_on": "eval: doc.result !== 'Pass'"
+  },
+  {
+   "fieldname": "defects",
+   "fieldtype": "Table",
+   "label": "Defects",
+   "options": "QC Defect",
+   "depends_on": "eval: doc.result !== 'Pass'"
+  },
+  {
+   "fieldname": "section_media",
+   "fieldtype": "Section Break",
+   "label": "Media & References"
+  },
+  {
+   "fieldname": "photo_ref",
+   "fieldtype": "Data",
+   "label": "Inspection Photo (S3 key)",
+   "description": "S3 key for camera-captured garment inspection image"
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pattern_ref",
+   "fieldtype": "Data",
+   "label": "Pattern File Ref (.val)",
+   "description": "Carried forward from tracker for traceability",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Garment QC Check",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "checked_at",
+ "sort_order": "DESC",
+ "track_changes": 0,
+ "read_only": 1,
+ "in_create": 0
+}

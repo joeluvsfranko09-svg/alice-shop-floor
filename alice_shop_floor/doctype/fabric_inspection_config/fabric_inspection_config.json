@@ -1,0 +1,95 @@
+{
+  "name": "Fabric Inspection Config",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 1,
+  "editable_grid": 0,
+  "fields": [
+    {
+      "fieldname": "cognex_host",
+      "fieldtype": "Data",
+      "label": "Cognex In-Sight Host / IP",
+      "reqd": 1,
+      "default": "192.168.1.100",
+      "description": "IP address or hostname of the Cognex In-Sight 3900 camera"
+    },
+    {
+      "fieldname": "cognex_port",
+      "fieldtype": "Int",
+      "label": "Cognex REST Port",
+      "default": 80,
+      "reqd": 1
+    },
+    {
+      "fieldname": "cognex_job_name",
+      "fieldtype": "Data",
+      "label": "Cognex Job Name",
+      "default": "fabric_inspection",
+      "description": "Name of the In-Sight job to trigger for fabric inspection"
+    },
+    {
+      "fieldname": "cognex_username",
+      "fieldtype": "Data",
+      "label": "Cognex Username",
+      "default": "admin"
+    },
+    {
+      "fieldname": "cognex_password",
+      "fieldtype": "Password",
+      "label": "Cognex Password"
+    },
+    {
+      "fieldname": "section_thresholds",
+      "fieldtype": "Section Break",
+      "label": "Pass / Fail Thresholds"
+    },
+    {
+      "fieldname": "max_minor_defects",
+      "fieldtype": "Int",
+      "label": "Max Minor Defects (Pass)",
+      "default": 5,
+      "description": "Fabric fails if minor defect count exceeds this"
+    },
+    {
+      "fieldname": "max_major_defects",
+      "fieldtype": "Int",
+      "label": "Max Major Defects (Pass)",
+      "default": 2
+    },
+    {
+      "fieldname": "fail_on_any_critical",
+      "fieldtype": "Check",
+      "label": "Fail on Any Critical Defect",
+      "default": 1
+    },
+    {
+      "fieldname": "min_defect_area_mm2",
+      "fieldtype": "Float",
+      "label": "Minimum Reportable Defect Area (mm²)",
+      "default": 4.0,
+      "description": "Defects smaller than this are ignored (sensor noise filter)"
+    },
+    {
+      "fieldname": "section_polling",
+      "fieldtype": "Section Break",
+      "label": "Polling"
+    },
+    {
+      "fieldname": "poll_interval_seconds",
+      "fieldtype": "Int",
+      "label": "Poll Interval (seconds)",
+      "default": 10,
+      "description": "How often alice_core polls Cognex for a pending result"
+    },
+    {
+      "fieldname": "max_poll_attempts",
+      "fieldtype": "Int",
+      "label": "Max Poll Attempts Before Timeout",
+      "default": 30
+    }
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1},
+    {"role": "System Manager", "read": 1, "write": 1}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+ "name": "Press Defect Map",
+ "doctype": "DocType",
+ "module": "Alice Shop Floor",
+ "description": "Child table for Press Inspection Log. One row per defect detected by the Cognex camera at the press stage.",
+ "istable": 1,
+ "field_order": ["defect_type","severity","zone","col_break_1","confidence_score","x_mm","y_mm","image_ref"],
+ "fields": [
+  {"fieldname":"defect_type","fieldtype":"Select","label":"Defect Type",
+   "options":"Scorch\nBurn Mark\nShine\nCrease Miss\nPressure Uneven\nFabric Distortion\nOther",
+   "reqd":1,"in_list_view":1},
+  {"fieldname":"severity","fieldtype":"Select","label":"Severity",
+   "options":"Minor\nMajor\nCritical","reqd":1,"in_list_view":1},
+  {"fieldname":"zone","fieldtype":"Data","label":"Garment Zone","in_list_view":1,
+   "description":"e.g. Front Bodice, Sleeve, Collar"},
+  {"fieldname":"col_break_1","fieldtype":"Column Break"},
+  {"fieldname":"confidence_score","fieldtype":"Float","label":"Confidence","in_list_view":1},
+  {"fieldname":"x_mm","fieldtype":"Float","label":"X (mm)"},
+  {"fieldname":"y_mm","fieldtype":"Float","label":"Y (mm)"},
+  {"fieldname":"image_ref","fieldtype":"Data","label":"Image Reference",
+   "description":"Filename or URL of the defect crop from Cognex"}
+ ],
+ "permissions":[],"sort_field":"idx","sort_order":"ASC",
+ "creation":"2026-05-13 00:00:00","modified":"2026-05-13 00:00:00",
+ "modified_by":"Administrator","owner":"Administrator","actions":[],"links":[]
+}

@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "thread_position",
+  "thread_color_code",
+  "thread_brand",
+  "thread_color_name",
+  "thread_hex"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "thread_position",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Needle Position",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "thread_color_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Color Code",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "thread_brand",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Thread Brand",
+   "options": "Madeira\nIsacord\nRobison-Anton\nGütermann\nSulky"
+  },
+  {
+   "columns": 2,
+   "fieldname": "thread_color_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Color Name"
+  },
+  {
+   "columns": 2,
+   "fieldname": "thread_hex",
+   "fieldtype": "Color",
+   "in_list_view": 1,
+   "label": "Hex Preview"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Embroidery Thread",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "autoname": "TR-.YYYY.-.#####",
+ "creation": "2026-07-18 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "session_id",
+  "square_payment_id",
+  "status",
+  "col_break_1",
+  "week_key",
+  "planned_start_date",
+  "quantity",
+  "section_break_product",
+  "product_type",
+  "garment_type",
+  "design_placement",
+  "section_break_design",
+  "design_url",
+  "section_break_customer",
+  "customer_name",
+  "customer_email",
+  "section_break_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "session_id",
+   "fieldtype": "Data",
+   "label": "TeeRiot Session ID",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "reqd": 1,
+   "unique": 0
+  },
+  {
+   "fieldname": "square_payment_id",
+   "fieldtype": "Data",
+   "label": "Square Payment ID",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Paid – Queued\nIn Production\nQC Passed\nShipped\nCancelled",
+   "default": "Paid – Queued",
+   "in_list_view": 1,
+   "bold": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "week_key",
+   "fieldtype": "Data",
+   "label": "Production Week Key",
+   "description": "ISO week key e.g. 2026-W32",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "planned_start_date",
+   "fieldtype": "Date",
+   "label": "Planned Start Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "label": "Quantity",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_product",
+   "fieldtype": "Section Break",
+   "label": "Product"
+  },
+  {
+   "fieldname": "product_type",
+   "fieldtype": "Select",
+   "label": "Product Type",
+   "options": "jersey\ntshirt\nshorts\nskirt\nhoodie",
+   "default": "jersey",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "garment_type",
+   "fieldtype": "Data",
+   "label": "Garment Type (label)",
+   "description": "Human label sent by TeeRiot e.g. 'athletic shorts', 'women\\'s skirt'"
+  },
+  {
+   "fieldname": "design_placement",
+   "fieldtype": "Select",
+   "label": "Design Placement",
+   "options": "Full Front\nFull Back\nLeft Chest\nRight Chest\nSleeve Left\nSleeve Right\nAll Over",
+   "default": "Full Front"
+  },
+  {
+   "fieldname": "section_break_design",
+   "fieldtype": "Section Break",
+   "label": "Artwork"
+  },
+  {
+   "fieldname": "design_url",
+   "fieldtype": "Small Text",
+   "label": "Design URL (Cloudinary)",
+   "description": "Final artwork PNG URL from Cloudinary — used by decoration station"
+  },
+  {
+   "fieldname": "section_break_customer",
+   "fieldtype": "Section Break",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Customer Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "section_break_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "icon": "fa fa-tshirt",
+ "index_web_pages_for_search": 0,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-07-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "TeeRiot Order",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

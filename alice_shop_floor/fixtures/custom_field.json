@@ -1,0 +1,768 @@
+[
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_section",
+    "label": "Decoration",
+    "fieldtype": "Section Break",
+    "insert_after": "for_quantity",
+    "collapsible": 0
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_method",
+    "label": "Decoration Method",
+    "fieldtype": "Select",
+    "options": "\nDTG\nDTF\nEmbroidery",
+    "insert_after": "decoration_section",
+    "in_list_view": 1,
+    "in_standard_filter": 1,
+    "search_index": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "production_recipe",
+    "label": "Production Recipe",
+    "fieldtype": "Link",
+    "options": "Production Recipe",
+    "insert_after": "decoration_method"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_col_break",
+    "fieldtype": "Column Break",
+    "insert_after": "production_recipe"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "design_file",
+    "label": "Design File",
+    "fieldtype": "Attach",
+    "insert_after": "decoration_col_break"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "design_placement",
+    "label": "Design Placement",
+    "fieldtype": "Select",
+    "options": "\nLeft Chest\nFull Front\nFull Back\nRight Chest\nLeft Sleeve\nRight Sleeve\nNeck Label\nHem\nCustom",
+    "insert_after": "design_file"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_col_break2",
+    "fieldtype": "Column Break",
+    "insert_after": "design_placement"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_routed",
+    "label": "Decoration Routed",
+    "fieldtype": "Check",
+    "default": "0",
+    "insert_after": "decoration_col_break2",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_router_scores",
+    "label": "Router Scores (JSON)",
+    "fieldtype": "Code",
+    "options": "JSON",
+    "insert_after": "decoration_routed",
+    "read_only": 1,
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtg_section",
+    "label": "DTG Parameters",
+    "fieldtype": "Section Break",
+    "insert_after": "decoration_router_scores",
+    "depends_on": "eval:doc.decoration_method=='DTG'",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtg_platen_size",
+    "label": "Platen Size",
+    "fieldtype": "Data",
+    "insert_after": "dtg_section",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtg_pretreat_required",
+    "label": "Pretreatment Required",
+    "fieldtype": "Check",
+    "default": "0",
+    "insert_after": "dtg_platen_size",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtg_col_break",
+    "fieldtype": "Column Break",
+    "insert_after": "dtg_pretreat_required"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtg_cure_temp",
+    "label": "Cure Temp (°F)",
+    "fieldtype": "Float",
+    "insert_after": "dtg_col_break",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtg_cure_time",
+    "label": "Cure Time (sec)",
+    "fieldtype": "Int",
+    "insert_after": "dtg_cure_temp",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtf_section",
+    "label": "DTF Parameters",
+    "fieldtype": "Section Break",
+    "insert_after": "dtg_cure_time",
+    "depends_on": "eval:doc.decoration_method=='DTF'",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtf_press_temp",
+    "label": "Press Temp (°F)",
+    "fieldtype": "Float",
+    "insert_after": "dtf_section",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtf_dwell_time",
+    "label": "Dwell Time (sec)",
+    "fieldtype": "Int",
+    "insert_after": "dtf_press_temp",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtf_col_break",
+    "fieldtype": "Column Break",
+    "insert_after": "dtf_dwell_time"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtf_pressure",
+    "label": "Press Pressure",
+    "fieldtype": "Data",
+    "insert_after": "dtf_col_break",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "dtf_peel_type",
+    "label": "Peel Type",
+    "fieldtype": "Data",
+    "insert_after": "dtf_pressure",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "emb_section",
+    "label": "Embroidery Parameters",
+    "fieldtype": "Section Break",
+    "insert_after": "dtf_peel_type",
+    "depends_on": "eval:doc.decoration_method=='Embroidery'",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "emb_dst_file",
+    "label": "DST File",
+    "fieldtype": "Attach",
+    "insert_after": "emb_section",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "emb_stitch_count",
+    "label": "Stitch Count",
+    "fieldtype": "Int",
+    "insert_after": "emb_dst_file",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "emb_col_break",
+    "fieldtype": "Column Break",
+    "insert_after": "emb_stitch_count"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "emb_hoop_size",
+    "label": "Hoop Size",
+    "fieldtype": "Data",
+    "insert_after": "emb_col_break",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "emb_stabilizer_type",
+    "label": "Stabilizer Type",
+    "fieldtype": "Data",
+    "insert_after": "emb_hoop_size",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "scan_to_print_section",
+    "label": "Scan-to-Print",
+    "fieldtype": "Section Break",
+    "insert_after": "emb_stabilizer_type",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "scan_to_print_qr",
+    "label": "QR Code (Scan-to-Print)",
+    "fieldtype": "Data",
+    "insert_after": "scan_to_print_section",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "last_scanned_at",
+    "label": "Last Scanned At",
+    "fieldtype": "Datetime",
+    "insert_after": "scan_to_print_qr",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "last_scanned_by",
+    "label": "Last Scanned By",
+    "fieldtype": "Link",
+    "options": "User",
+    "insert_after": "last_scanned_at",
+    "read_only": 1
+  },
+
+  // ── Job Card: Shopify / Design Studio fields ─────────────────────────────
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_section",
+    "label": "Shopify Design Studio",
+    "fieldtype": "Section Break",
+    "insert_after": "last_scanned_by",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_design_id",
+    "label": "Design Studio ID",
+    "fieldtype": "Data",
+    "insert_after": "shopify_section",
+    "in_standard_filter": 1,
+    "search_index": 1,
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_order_id",
+    "label": "Shopify Order ID",
+    "fieldtype": "Data",
+    "insert_after": "shopify_design_id",
+    "in_standard_filter": 1,
+    "search_index": 1,
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_col_break",
+    "fieldtype": "Column Break",
+    "insert_after": "shopify_order_id"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_line_item_id",
+    "label": "Shopify Line Item ID",
+    "fieldtype": "Data",
+    "insert_after": "shopify_col_break",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_shop",
+    "label": "Shopify Store",
+    "fieldtype": "Data",
+    "insert_after": "shopify_line_item_id",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_col_break2",
+    "fieldtype": "Column Break",
+    "insert_after": "shopify_shop"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "customer_name",
+    "label": "Customer Name",
+    "fieldtype": "Data",
+    "insert_after": "shopify_col_break2",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "customer_email",
+    "label": "Customer Email",
+    "fieldtype": "Data",
+    "insert_after": "customer_name",
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "canvas_json_section",
+    "label": "Canvas JSON",
+    "fieldtype": "Section Break",
+    "insert_after": "customer_email",
+    "collapsible": 1,
+    "hidden": 0
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Job Card",
+    "module": "Alice Shop Floor",
+    "fieldname": "canvas_json",
+    "label": "Canvas JSON (fabric.js)",
+    "fieldtype": "Long Text",
+    "insert_after": "canvas_json_section",
+    "read_only": 1,
+    "description": "Serialised fabric.js canvas from ZAZFIT Design Studio. Stored for reprint and Garment Passport archive."
+  },
+
+  // ── Work Order: Shopify reference fields ─────────────────────────────────
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_section",
+    "label": "Shopify Reference",
+    "fieldtype": "Section Break",
+    "insert_after": "description",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_order_id",
+    "label": "Shopify Order ID",
+    "fieldtype": "Data",
+    "insert_after": "shopify_section",
+    "in_standard_filter": 1,
+    "search_index": 1,
+    "read_only": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_line_item_id",
+    "label": "Shopify Line Item ID",
+    "fieldtype": "Data",
+    "insert_after": "shopify_order_id",
+    "read_only": 1
+  },,
+
+  // ── Work Order: Decoration scheduling fields ──────────────────────────────
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_section",
+    "label": "Decoration",
+    "fieldtype": "Section Break",
+    "insert_after": "shopify_line_item_id",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "production_recipe",
+    "label": "Production Recipe",
+    "fieldtype": "Link",
+    "options": "Production Recipe",
+    "insert_after": "decoration_section",
+    "in_standard_filter": 1,
+    "search_index": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "decoration_method",
+    "label": "Decoration Method",
+    "fieldtype": "Select",
+    "options": "\nDTG\nDTF\nEmbroidery",
+    "insert_after": "production_recipe",
+    "in_list_view": 1,
+    "in_standard_filter": 1,
+    "read_only": 1,
+    "description": "Auto-filled from Production Recipe on submit"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "deco_jc_created",
+    "label": "Decoration Job Card Created",
+    "fieldtype": "Check",
+    "default": "0",
+    "insert_after": "decoration_method",
+    "read_only": 1,
+    "description": "Set when the scheduler auto-creates the decoration Job Card"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "deco_job_card",
+    "label": "Decoration Job Card",
+    "fieldtype": "Link",
+    "options": "Job Card",
+    "insert_after": "deco_jc_created",
+    "read_only": 1
+  }
+
+  // ── Item: Shopify product/variant mapping ─────────────────────────────────
+  {
+    "doctype": "Custom Field",
+    "dt": "Item",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_section",
+    "label": "Shopify Mapping",
+    "fieldtype": "Section Break",
+    "insert_after": "description",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Item",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_product_id",
+    "label": "Shopify Product ID",
+    "fieldtype": "Data",
+    "insert_after": "shopify_section",
+    "in_standard_filter": 1,
+    "search_index": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Item",
+    "module": "Alice Shop Floor",
+    "fieldname": "shopify_variant_id",
+    "label": "Shopify Variant ID",
+    "fieldtype": "Data",
+    "insert_after": "shopify_product_id",
+    "in_standard_filter": 1,
+    "search_index": 1
+  },
+
+  // ── Work Order: Pattern sizing mode + measurement fields (Task #78) ───────
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "pattern_sizing_section",
+    "label": "Pattern Sizing",
+    "fieldtype": "Section Break",
+    "insert_after": "deco_job_card",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "pattern_mode",
+    "label": "Pattern Mode",
+    "fieldtype": "Select",
+    "options": "\nMTM\nGraded\nFitModel",
+    "default": "MTM",
+    "insert_after": "pattern_sizing_section",
+    "in_standard_filter": 1,
+    "description": "MTM = made-to-measure from customer fields below; Graded = standard size table; FitModel = named house body"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "pattern_mode_col_break",
+    "fieldtype": "Column Break",
+    "insert_after": "pattern_mode"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "size_stream",
+    "label": "Size Stream",
+    "fieldtype": "Link",
+    "options": "Size Stream",
+    "insert_after": "pattern_mode_col_break",
+    "depends_on": "eval:doc.pattern_mode=='Graded'",
+    "description": "Required for Graded mode"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "size_code",
+    "label": "Size Code",
+    "fieldtype": "Data",
+    "insert_after": "size_stream",
+    "depends_on": "eval:doc.pattern_mode=='Graded'",
+    "in_list_view": 1,
+    "in_standard_filter": 1,
+    "description": "e.g. XS, S, M, L, XL, 2XL — must match a row in the linked Size Stream"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "fit_model",
+    "label": "Fit Model",
+    "fieldtype": "Link",
+    "options": "Fit Model",
+    "insert_after": "size_code",
+    "depends_on": "eval:doc.pattern_mode=='FitModel'",
+    "description": "Required for FitModel mode"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "mtm_measurements_section",
+    "label": "Customer Measurements (MTM)",
+    "fieldtype": "Section Break",
+    "insert_after": "fit_model",
+    "depends_on": "eval:doc.pattern_mode=='MTM' || !doc.pattern_mode",
+    "collapsible": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "bust_cm",
+    "label": "Bust (cm)",
+    "fieldtype": "Float",
+    "insert_after": "mtm_measurements_section"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "waist_cm",
+    "label": "Waist (cm)",
+    "fieldtype": "Float",
+    "insert_after": "bust_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "hip_cm",
+    "label": "Hip (cm)",
+    "fieldtype": "Float",
+    "insert_after": "waist_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "mtm_col_break_1",
+    "fieldtype": "Column Break",
+    "insert_after": "hip_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "inseam_cm",
+    "label": "Inseam (cm)",
+    "fieldtype": "Float",
+    "insert_after": "mtm_col_break_1"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "rise_cm",
+    "label": "Rise (cm)",
+    "fieldtype": "Float",
+    "insert_after": "inseam_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "thigh_cm",
+    "label": "Thigh (cm)",
+    "fieldtype": "Float",
+    "insert_after": "rise_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "mtm_col_break_2",
+    "fieldtype": "Column Break",
+    "insert_after": "thigh_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "shoulder_cm",
+    "label": "Shoulder Width (cm)",
+    "fieldtype": "Float",
+    "insert_after": "mtm_col_break_2"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "sleeve_cm",
+    "label": "Sleeve Length (cm)",
+    "fieldtype": "Float",
+    "insert_after": "shoulder_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "neck_cm",
+    "label": "Neck Circumference (cm)",
+    "fieldtype": "Float",
+    "insert_after": "sleeve_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "mtm_col_break_3",
+    "fieldtype": "Column Break",
+    "insert_after": "neck_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "chest_cm",
+    "label": "Chest (cm)",
+    "fieldtype": "Float",
+    "insert_after": "mtm_col_break_3"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "back_length_cm",
+    "label": "Back Length (cm)",
+    "fieldtype": "Float",
+    "insert_after": "chest_cm"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Work Order",
+    "module": "Alice Shop Floor",
+    "fieldname": "front_length_cm",
+    "label": "Front Length (cm)",
+    "fieldtype": "Float",
+    "insert_after": "back_length_cm"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "name": "Final Inspection Result",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:FIR2-{work_order}-{##}",
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "work_order",        "fieldtype": "Link",     "label": "Work Order",       "options": "Work Order", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "overall_result",    "fieldtype": "Select",   "label": "Result",           "in_list_view": 1,
+     "options": "Pending\nPass\nFail\nError", "default": "Pending"},
+    {"fieldname": "cognex_job_id",     "fieldtype": "Data",     "label": "Cognex Job ID"},
+    {"fieldname": "inspected_at",      "fieldtype": "Datetime", "label": "Inspected At"},
+    {"fieldname": "triggered_by",      "fieldtype": "Link",     "label": "Triggered By", "options": "User"},
+    {"fieldname": "counts_section",    "fieldtype": "Section Break", "label": "Defect Counts"},
+    {"fieldname": "defect_count_minor",    "fieldtype": "Int", "label": "Minor Defects",    "default": "0"},
+    {"fieldname": "defect_count_major",    "fieldtype": "Int", "label": "Major Defects",    "default": "0"},
+    {"fieldname": "defect_count_critical", "fieldtype": "Int", "label": "Critical Defects", "default": "0"},
+    {"fieldname": "defect_map_section","fieldtype": "Section Break", "label": "Defect Map"},
+    {"fieldname": "defect_map",        "fieldtype": "Table",    "label": "Defect Map", "options": "Garment Defect Map"},
+    {"fieldname": "outcome_section",   "fieldtype": "Section Break", "label": "Outcome"},
+    {"fieldname": "fail_reason",       "fieldtype": "Small Text","label": "Fail Reason"},
+    {"fieldname": "error_message",     "fieldtype": "Small Text","label": "Error Message"},
+    {"fieldname": "supervisor_override","fieldtype": "Check",    "label": "Supervisor Override"},
+    {"fieldname": "overridden_by",     "fieldtype": "Link",     "label": "Overridden By", "options": "User"},
+    {"fieldname": "overridden_at",     "fieldtype": "Datetime", "label": "Overridden At"},
+    {"fieldname": "override_notes",    "fieldtype": "Small Text","label": "Override Notes"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing User",    "read": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

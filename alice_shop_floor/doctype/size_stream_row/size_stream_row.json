@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-05-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "size_code",
+  "size_label",
+  "col_break_1",
+  "bust_cm",
+  "waist_cm",
+  "hip_cm",
+  "col_break_2",
+  "inseam_cm",
+  "rise_cm",
+  "thigh_cm",
+  "col_break_3",
+  "shoulder_cm",
+  "sleeve_cm",
+  "col_break_4",
+  "neck_cm",
+  "chest_cm",
+  "col_break_5",
+  "back_length_cm",
+  "front_length_cm",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "size_code",
+   "fieldtype": "Data",
+   "label": "Size Code",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_grid_view": 1
+  },
+  {
+   "fieldname": "size_label",
+   "fieldtype": "Data",
+   "label": "Display Label",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bust_cm",
+   "fieldtype": "Float",
+   "label": "Bust (cm)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "waist_cm",
+   "fieldtype": "Float",
+   "label": "Waist (cm)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "hip_cm",
+   "fieldtype": "Float",
+   "label": "Hip (cm)"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inseam_cm",
+   "fieldtype": "Float",
+   "label": "Inseam (cm)"
+  },
+  {
+   "fieldname": "rise_cm",
+   "fieldtype": "Float",
+   "label": "Rise (cm)"
+  },
+  {
+   "fieldname": "thigh_cm",
+   "fieldtype": "Float",
+   "label": "Thigh (cm)"
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shoulder_cm",
+   "fieldtype": "Float",
+   "label": "Shoulder Width (cm)"
+  },
+  {
+   "fieldname": "sleeve_cm",
+   "fieldtype": "Float",
+   "label": "Sleeve Length (cm)"
+  },
+  {
+   "fieldname": "col_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "neck_cm",
+   "fieldtype": "Float",
+   "label": "Neck Circumference (cm)"
+  },
+  {
+   "fieldname": "chest_cm",
+   "fieldtype": "Float",
+   "label": "Chest (cm)"
+  },
+  {
+   "fieldname": "col_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "back_length_cm",
+   "fieldtype": "Float",
+   "label": "Back Length (cm)"
+  },
+  {
+   "fieldname": "front_length_cm",
+   "fieldtype": "Float",
+   "label": "Front Length (cm)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "istable": 1,
+ "issingle": 0,
+ "modified": "2026-05-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Size Stream Row",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "track_changes": 0
+}

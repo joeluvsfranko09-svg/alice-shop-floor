@@ -1,0 +1,197 @@
+{
+  "name": "SanMar Config",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "issingle": 1,
+  "is_submittable": 0,
+  "track_changes": 1,
+  "description": "SanMar API credentials and sync settings. One record, singleton.",
+  "fields": [
+    {
+      "fieldname": "api_section",
+      "fieldtype": "Section Break",
+      "label": "API Credentials"
+    },
+    {
+      "fieldname": "api_mode",
+      "fieldtype": "Select",
+      "label": "API Mode",
+      "options": "REST (PromoStandards)\nSOAP (Legacy WebService)",
+      "default": "REST (PromoStandards)",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "sanmar_username",
+      "fieldtype": "Data",
+      "label": "SanMar Username",
+      "reqd": 1,
+      "description": "Your SanMar account username (same as sanmar.com login)"
+    },
+    {
+      "fieldname": "sanmar_password",
+      "fieldtype": "Password",
+      "label": "SanMar Password",
+      "reqd": 1
+    },
+    {
+      "fieldname": "cb1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "rest_base_url",
+      "fieldtype": "Data",
+      "label": "REST Base URL",
+      "default": "https://api.sanmar.com",
+      "description": "Override only if SanMar provides a staging/sandbox URL"
+    },
+    {
+      "fieldname": "soap_wsdl_url",
+      "fieldtype": "Data",
+      "label": "SOAP WSDL URL",
+      "default": "http://ws.sanmar.com:8080/SanMarWebService/SanMarWebServicePort?wsdl",
+      "description": "Used only when API Mode = SOAP"
+    },
+    {
+      "fieldname": "connection_timeout",
+      "fieldtype": "Int",
+      "label": "Connection Timeout (seconds)",
+      "default": 30
+    },
+    {
+      "fieldname": "sync_section",
+      "fieldtype": "Section Break",
+      "label": "Sync Settings"
+    },
+    {
+      "fieldname": "catalog_sync_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Catalog Sync",
+      "default": 1,
+      "description": "Pull SanMar styles into ERPNext Items daily"
+    },
+    {
+      "fieldname": "pricing_sync_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Pricing Sync",
+      "default": 1,
+      "description": "Sync SanMar net prices into ERPNext Item Price list daily"
+    },
+    {
+      "fieldname": "stock_cache_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Stock Cache",
+      "default": 1,
+      "description": "Refresh live inventory cache every 30 minutes"
+    },
+    {
+      "fieldname": "auto_po_enabled",
+      "fieldtype": "Check",
+      "label": "Enable Auto Purchase Order",
+      "default": 0,
+      "description": "Automatically create a PO to SanMar when WO blanks are out of stock. Review carefully before enabling in production."
+    },
+    {
+      "fieldname": "cb2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "stock_cache_ttl_minutes",
+      "fieldtype": "Int",
+      "label": "Stock Cache TTL (minutes)",
+      "default": 15,
+      "description": "How long a cached inventory reading is considered fresh"
+    },
+    {
+      "fieldname": "erpnext_supplier",
+      "fieldtype": "Link",
+      "label": "ERPNext Supplier (SanMar)",
+      "options": "Supplier",
+      "description": "The ERPNext Supplier record that represents SanMar for PO creation"
+    },
+    {
+      "fieldname": "erpnext_price_list",
+      "fieldtype": "Link",
+      "label": "ERPNext Price List",
+      "options": "Price List",
+      "default": "SanMar Purchase",
+      "description": "Price list where SanMar net prices are stored"
+    },
+    {
+      "fieldname": "default_warehouse",
+      "fieldtype": "Link",
+      "label": "Receiving Warehouse",
+      "options": "Warehouse",
+      "description": "Default warehouse for SanMar purchase receipts"
+    },
+    {
+      "fieldname": "item_group",
+      "fieldtype": "Link",
+      "label": "Default Item Group",
+      "options": "Item Group",
+      "default": "Blank Apparel",
+      "description": "ERPNext Item Group used when creating new items from SanMar catalog"
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "Last Sync Status"
+    },
+    {
+      "fieldname": "last_catalog_sync",
+      "fieldtype": "Datetime",
+      "label": "Last Catalog Sync",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_pricing_sync",
+      "fieldtype": "Datetime",
+      "label": "Last Pricing Sync",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_stock_cache",
+      "fieldtype": "Datetime",
+      "label": "Last Stock Cache Refresh",
+      "read_only": 1
+    },
+    {
+      "fieldname": "cb3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "catalog_sync_status",
+      "fieldtype": "Select",
+      "label": "Catalog Sync Status",
+      "options": "\nOK\nError\nRunning",
+      "read_only": 1
+    },
+    {
+      "fieldname": "catalog_sync_message",
+      "fieldtype": "Small Text",
+      "label": "Catalog Sync Message",
+      "read_only": 1
+    },
+    {
+      "fieldname": "filter_section",
+      "fieldtype": "Section Break",
+      "label": "Catalog Filters"
+    },
+    {
+      "fieldname": "sync_style_list",
+      "fieldtype": "Small Text",
+      "label": "Styles to Sync (comma-separated)",
+      "description": "Leave blank to sync all styles. Example: PC61,PC54,DT6000,ST650"
+    },
+    {
+      "fieldname": "sync_brand_list",
+      "fieldtype": "Small Text",
+      "label": "Brands to Sync (comma-separated)",
+      "description": "Example: Port & Company,District,Sport-Tek. Leave blank for all brands."
+    }
+  ],
+  "permissions": [
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1}
+  ]
+}

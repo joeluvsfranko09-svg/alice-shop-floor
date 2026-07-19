@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "autoname": "format:STT-{stage}",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "stage",
+  "target_minutes",
+  "col_break_1",
+  "warning_threshold_pct",
+  "critical_threshold_pct",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Fabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "reqd": 1,
+   "in_list_view": 1,
+   "bold": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "target_minutes",
+   "fieldtype": "Float",
+   "label": "Target Minutes / Garment",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Expected throughput time per custom garment at this stage"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "warning_threshold_pct",
+   "fieldtype": "Percent",
+   "label": "Warning at (% over target)",
+   "default": "50",
+   "description": "e.g. 50 = flag when avg is 1.5× the target"
+  },
+  {
+   "fieldname": "critical_threshold_pct",
+   "fieldtype": "Percent",
+   "label": "Critical at (% over target)",
+   "default": "100",
+   "description": "e.g. 100 = flag critical when avg is 2× the target"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Stage Throughput Target",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 0, "read": 1, "write": 1, "role": "Manufacturing Manager"},
+  {"create": 1, "delete": 1, "read": 1, "write": 1, "role": "System Manager"}
+ ],
+ "sort_field": "stage",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

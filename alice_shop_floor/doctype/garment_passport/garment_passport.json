@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "autoname": "format:PASSPORT-{work_order}",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "work_order",
+  "tracker",
+  "col_break_1",
+  "production_item",
+  "is_sealed",
+  "section_provenance",
+  "fabric_lot",
+  "col_break_2",
+  "pattern_file_ref",
+  "printfactory_job_id",
+  "section_operators",
+  "operators",
+  "section_qc",
+  "qc_passed_stages",
+  "col_break_3",
+  "qc_failed_stages",
+  "has_defects",
+  "section_seal",
+  "sealed_at",
+  "col_break_4",
+  "sealed_by",
+  "section_qr",
+  "passport_url",
+  "qr_image_ref",
+  "col_break_5",
+  "qr_payload"
+ ],
+ "fields": [
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "tracker",
+   "fieldtype": "Link",
+   "label": "Stage Tracker",
+   "options": "Production Stage Tracker",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "production_item",
+   "fieldtype": "Data",
+   "label": "Item",
+   "fetch_from": "work_order.production_item",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_sealed",
+   "fieldtype": "Check",
+   "label": "Sealed",
+   "default": "0",
+   "in_list_view": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "section_provenance",
+   "fieldtype": "Section Break",
+   "label": "Provenance"
+  },
+  {
+   "fieldname": "fabric_lot",
+   "fieldtype": "Data",
+   "label": "Fabric Lot"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pattern_file_ref",
+   "fieldtype": "Data",
+   "label": "Pattern File (.val)",
+   "description": "S3 key for the Seamly2D pattern used for this garment"
+  },
+  {
+   "fieldname": "printfactory_job_id",
+   "fieldtype": "Data",
+   "label": "PrintFactory Job ID",
+   "description": "Proves the exact print/cut job that produced this garment"
+  },
+  {
+   "fieldname": "section_operators",
+   "fieldtype": "Section Break",
+   "label": "Made By"
+  },
+  {
+   "fieldname": "operators",
+   "fieldtype": "Table",
+   "label": "Operators",
+   "options": "Passport Operator Record"
+  },
+  {
+   "fieldname": "section_qc",
+   "fieldtype": "Section Break",
+   "label": "Quality Record"
+  },
+  {
+   "fieldname": "qc_passed_stages",
+   "fieldtype": "Small Text",
+   "label": "Passed Stages",
+   "read_only": 1,
+   "description": "Comma-separated list of QC stages this garment passed"
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qc_failed_stages",
+   "fieldtype": "Small Text",
+   "label": "Failed / Rework Stages",
+   "read_only": 1
+  },
+  {
+   "fieldname": "has_defects",
+   "fieldtype": "Check",
+   "label": "Had Defects (resolved)",
+   "default": "0",
+   "description": "True if any stage had defects that were resolved before Pack"
+  },
+  {
+   "fieldname": "section_seal",
+   "fieldtype": "Section Break",
+   "label": "Seal"
+  },
+  {
+   "fieldname": "sealed_at",
+   "fieldtype": "Datetime",
+   "label": "Sealed At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sealed_by",
+   "fieldtype": "Link",
+   "label": "Sealed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_qr",
+   "fieldtype": "Section Break",
+   "label": "QR Code"
+  },
+  {
+   "fieldname": "passport_url",
+   "fieldtype": "Data",
+   "label": "Passport URL",
+   "description": "Customer-facing URL encoded in the QR code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qr_image_ref",
+   "fieldtype": "Data",
+   "label": "QR Image (S3 key)",
+   "description": "S3 key for the generated QR code PNG — printed on hangtag",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qr_payload",
+   "fieldtype": "Code",
+   "label": "QR Payload (JSON)",
+   "options": "JSON",
+   "description": "Full passport data sealed into the QR",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Garment Passport",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "sealed_at",
+ "sort_order": "DESC",
+ "track_changes": 0,
+ "read_only": 1
+}

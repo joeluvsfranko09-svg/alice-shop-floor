@@ -1,0 +1,13 @@
+{
+  "name": "piece-picker",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "piece-picker",
+  "title": "ALICE Piece Picker",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"}
+  ]
+}
