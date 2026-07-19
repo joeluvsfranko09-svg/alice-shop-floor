@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "stage",
+  "active_orders",
+  "col_break_1",
+  "avg_minutes_in_stage",
+  "target_minutes",
+  "variance_pct",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Fabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "active_orders",
+   "fieldtype": "Int",
+   "label": "Active Orders",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "avg_minutes_in_stage",
+   "fieldtype": "Float",
+   "label": "Avg Min",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "target_minutes",
+   "fieldtype": "Float",
+   "label": "Target Min",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "variance_pct",
+   "fieldtype": "Percent",
+   "label": "Variance %",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "OK\nWarning\nCritical\nNo Data",
+   "in_list_view": 1,
+   "columns": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Stage Reading",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "stage",
+ "sort_order": "ASC",
+ "track_changes": 0
+}

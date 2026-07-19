@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "autoname": "format:IPR-{stage}",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "stage",
+  "is_active",
+  "col_break_1",
+  "base_rate_per_piece",
+  "section_quality",
+  "quality_bonus_threshold_pct",
+  "quality_bonus_per_piece",
+  "col_break_2",
+  "defect_minor_penalty",
+  "defect_major_penalty",
+  "defect_critical_penalty",
+  "section_speed",
+  "speed_bonus_threshold_pph",
+  "speed_bonus_per_piece",
+  "section_notes",
+  "rule_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Fabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "reqd": 1,
+   "in_list_view": 1,
+   "bold": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "base_rate_per_piece",
+   "fieldtype": "Currency",
+   "label": "Base Rate / Piece",
+   "reqd": 1,
+   "description": "USD paid per garment touched at this stage"
+  },
+  {
+   "fieldname": "section_quality",
+   "fieldtype": "Section Break",
+   "label": "Quality Incentive"
+  },
+  {
+   "fieldname": "quality_bonus_threshold_pct",
+   "fieldtype": "Percent",
+   "label": "QC Pass Threshold for Bonus (%)",
+   "default": "95",
+   "description": "Operator must hit this QC pass rate to earn the quality bonus"
+  },
+  {
+   "fieldname": "quality_bonus_per_piece",
+   "fieldtype": "Currency",
+   "label": "Quality Bonus / Piece",
+   "description": "Bonus per piece when pass rate exceeds threshold"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "defect_minor_penalty",
+   "fieldtype": "Currency",
+   "label": "Minor Defect Penalty",
+   "default": "0.25"
+  },
+  {
+   "fieldname": "defect_major_penalty",
+   "fieldtype": "Currency",
+   "label": "Major Defect Penalty",
+   "default": "0.75"
+  },
+  {
+   "fieldname": "defect_critical_penalty",
+   "fieldtype": "Currency",
+   "label": "Critical Defect Penalty",
+   "default": "2.00",
+   "description": "Cut/Measurement deviations always Critical in POD — higher penalty"
+  },
+  {
+   "fieldname": "section_speed",
+   "fieldtype": "Section Break",
+   "label": "Speed Bonus"
+  },
+  {
+   "fieldname": "speed_bonus_threshold_pph",
+   "fieldtype": "Float",
+   "label": "Pieces / Hour Threshold",
+   "description": "Pieces per hour an operator must sustain to earn speed bonus"
+  },
+  {
+   "fieldname": "speed_bonus_per_piece",
+   "fieldtype": "Currency",
+   "label": "Speed Bonus / Piece"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "rule_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Incentive Pay Rule",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1, "delete": 0, "read": 1, "write": 1,
+   "role": "Manufacturing Manager"
+  },
+  {
+   "create": 1, "delete": 1, "read": 1, "write": 1,
+   "role": "System Manager"
+  }
+ ],
+ "sort_field": "stage",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "autoname": "field:stream_name",
+ "creation": "2026-05-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "stream_name",
+  "standard",
+  "is_active",
+  "col_break_top",
+  "description",
+  "unit",
+  "sizes_section",
+  "sizes"
+ ],
+ "fields": [
+  {
+   "fieldname": "stream_name",
+   "fieldtype": "Data",
+   "label": "Stream Name",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "standard",
+   "fieldtype": "Select",
+   "label": "Sizing Standard",
+   "options": "\nASTM D5585\nISO 8559\nEU Sizing\nUK Sizing\nJP Sizing\nCustom",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description / Notes"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Select",
+   "label": "Measurement Unit",
+   "options": "cm\ninch",
+   "default": "cm"
+  },
+  {
+   "fieldname": "sizes_section",
+   "fieldtype": "Section Break",
+   "label": "Size Rows"
+  },
+  {
+   "fieldname": "sizes",
+   "fieldtype": "Table",
+   "label": "Sizes",
+   "options": "Size Stream Row",
+   "reqd": 1
+  }
+ ],
+ "in_create": 1,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-05-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Size Stream",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Shop Floor Supervisor",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Shop Floor Operator",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "stream_name",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

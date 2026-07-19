@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "stage",
+  "operator",
+  "col_break_1",
+  "touched_at",
+  "operation_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Fabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "operator",
+   "fieldtype": "Link",
+   "label": "Operator",
+   "options": "User",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "touched_at",
+   "fieldtype": "Datetime",
+   "label": "Time",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "operation_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Passport Operator Record",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "touched_at",
+ "sort_order": "ASC",
+ "track_changes": 0
+}

@@ -1,0 +1,13 @@
+{
+  "name": "dtg-print-station",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "dtg-print-station",
+  "title": "DTG Print Station",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"}
+  ]
+}

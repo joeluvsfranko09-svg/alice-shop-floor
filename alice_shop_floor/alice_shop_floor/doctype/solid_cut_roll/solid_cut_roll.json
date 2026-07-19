@@ -1,0 +1,63 @@
+{
+ "name": "Solid Cut Roll",
+ "doctype": "DocType",
+ "module": "Alice Shop Floor",
+ "description": "Child table row in Solid Fabric Cut Log. One row per fabric roll used in the cut. Records the roll ID, dye lot, and which piece types were cut from it for full traceability.",
+ "istable": 1,
+ "field_order": [
+  "roll_id","dye_lot","col_break_1",
+  "yardage_used","piece_types_cut",
+  "roll_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "roll_id",
+   "fieldtype": "Data",
+   "label": "Roll ID",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Roll barcode or serial number from the fabric bolt"
+  },
+  {
+   "fieldname": "dye_lot",
+   "fieldtype": "Data",
+   "label": "Dye Lot",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Dye lot code printed on the bolt label"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yardage_used",
+   "fieldtype": "Float",
+   "label": "Yardage Used",
+   "in_list_view": 1,
+   "description": "How many yards from this roll were cut"
+  },
+  {
+   "fieldname": "piece_types_cut",
+   "fieldtype": "Small Text",
+   "label": "Piece Types Cut",
+   "in_list_view": 1,
+   "description": "e.g. Front Panel, Back Panel, Collar — which pieces came from this roll"
+  },
+  {
+   "fieldname": "roll_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes",
+   "description": "Any defects, edge issues, colour inconsistencies noted on this roll"
+  }
+ ],
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "creation": "2026-05-13 00:00:00",
+ "modified": "2026-05-13 00:00:00",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "actions": [],
+ "links": []
+}

@@ -1,0 +1,13 @@
+{
+  "name": "emb-station",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "emb-station",
+  "title": "Embroidery Station",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"}
+  ]
+}

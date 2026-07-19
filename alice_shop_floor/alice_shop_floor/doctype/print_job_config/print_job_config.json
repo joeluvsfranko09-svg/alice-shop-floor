@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_fabric",
+  "default_fabric_width_mm",
+  "nesting_gap_mm",
+  "col_break_1",
+  "max_orders_per_batch",
+  "auto_batch_at_cutting",
+  "section_efficiency",
+  "warn_below_efficiency_pct",
+  "section_s3",
+  "dxf_s3_bucket",
+  "dxf_s3_prefix"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_fabric",
+   "fieldtype": "Section Break",
+   "label": "Fabric & Nesting"
+  },
+  {
+   "fieldname": "default_fabric_width_mm",
+   "fieldtype": "Float",
+   "label": "Default Fabric Width (mm)",
+   "default": "1500",
+   "reqd": 1,
+   "description": "Fabric roll width sent to PrintFactory for nesting calculations"
+  },
+  {
+   "fieldname": "nesting_gap_mm",
+   "fieldtype": "Float",
+   "label": "Nesting Gap (mm)",
+   "default": "5",
+   "description": "Minimum gap between nested pattern pieces"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_orders_per_batch",
+   "fieldtype": "Int",
+   "label": "Max Orders per Batch",
+   "default": "20",
+   "description": "Maximum Work Orders grouped into one PrintFactory job"
+  },
+  {
+   "fieldname": "auto_batch_at_cutting",
+   "fieldtype": "Check",
+   "label": "Auto-batch when orders reach Cutting",
+   "default": "1",
+   "description": "ALICE automatically groups orders into batches without supervisor action"
+  },
+  {
+   "fieldname": "section_efficiency",
+   "fieldtype": "Section Break",
+   "label": "Efficiency Alerts"
+  },
+  {
+   "fieldname": "warn_below_efficiency_pct",
+   "fieldtype": "Percent",
+   "label": "Warn if Nesting Efficiency Below (%)",
+   "default": "75",
+   "description": "Alert supervisor if PrintFactory reports nesting below this threshold"
+  },
+  {
+   "fieldname": "section_s3",
+   "fieldtype": "Section Break",
+   "label": "S3 Storage"
+  },
+  {
+   "fieldname": "dxf_s3_bucket",
+   "fieldtype": "Data",
+   "label": "DXF S3 Bucket",
+   "description": "Bucket where Seamly2D DXF cut files are stored"
+  },
+  {
+   "fieldname": "dxf_s3_prefix",
+   "fieldtype": "Data",
+   "label": "DXF S3 Key Prefix",
+   "default": "dxf/",
+   "description": "e.g. dxf/ — keys are dxf/{work_order}.dxf"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Print Job Config",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 0, "read": 1, "write": 1, "role": "Manufacturing Manager"},
+  {"create": 1, "delete": 1, "read": 1, "write": 1, "role": "System Manager"}
+ ],
+ "track_changes": 1
+}

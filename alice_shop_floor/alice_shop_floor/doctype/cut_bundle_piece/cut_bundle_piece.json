@@ -1,0 +1,79 @@
+{
+  "name": "Cut Bundle Piece",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "istable": 1,
+  "description": "One cut panel/piece within a bundle. Tracks its fabric zone and nest position so shade variation can be detected.",
+  "fields": [
+    {
+      "fieldname": "piece_name",
+      "fieldtype": "Data",
+      "label": "Piece Name",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "Pattern piece label, e.g. Front Body, Back Body, Sleeve L, Waistband"
+    },
+    {
+      "fieldname": "fabric_zone",
+      "fieldtype": "Data",
+      "label": "Fabric Zone",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "Position on the fabric roll, e.g. A1, B3, Edge-Left, Centre. Zones with the same label are from the same area."
+    },
+    {
+      "fieldname": "nest_x_mm",
+      "fieldtype": "Float",
+      "label": "Nest X (mm)",
+      "in_list_view": 0,
+      "description": "X coordinate of piece in the nest layout (from nesting software export)"
+    },
+    {
+      "fieldname": "nest_y_mm",
+      "fieldtype": "Float",
+      "label": "Nest Y (mm)",
+      "in_list_view": 0,
+      "description": "Y coordinate of piece in the nest layout"
+    },
+    {
+      "fieldname": "shade_ref",
+      "fieldtype": "Data",
+      "label": "Shade Reference",
+      "in_list_view": 1,
+      "description": "Shade / dye-lot zone code from fabric roll inspection. Must match other pieces."
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "cut_status",
+      "fieldtype": "Select",
+      "label": "Cut Status",
+      "options": "Pending\nCut\nRejected",
+      "default": "Pending",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "shade_flag",
+      "fieldtype": "Select",
+      "label": "Shade Flag",
+      "options": "OK\nWarning\nMismatch",
+      "default": "OK",
+      "in_list_view": 1,
+      "description": "Set automatically: Warning = piece from edge zone, Mismatch = shade_ref differs from majority"
+    },
+    {
+      "fieldname": "v3_deviation_mm",
+      "fieldtype": "Float",
+      "label": "V3 Deviation (mm)",
+      "read_only": 1,
+      "description": "Max dimensional deviation flagged by V3 Cognex cut inspection"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ]
+}

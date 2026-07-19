@@ -1,0 +1,211 @@
+{
+ "actions": [],
+ "autoname": "field:model_name",
+ "creation": "2026-05-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "model_name",
+  "is_active",
+  "col_break_top",
+  "description",
+  "reference_size_code",
+  "measurements_section",
+  "bust_cm",
+  "waist_cm",
+  "hip_cm",
+  "col_break_1",
+  "inseam_cm",
+  "rise_cm",
+  "thigh_cm",
+  "col_break_2",
+  "shoulder_cm",
+  "sleeve_cm",
+  "col_break_3",
+  "neck_cm",
+  "chest_cm",
+  "col_break_4",
+  "back_length_cm",
+  "front_length_cm",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "model_name",
+   "fieldtype": "Data",
+   "label": "Fit Model Name",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description / Notes"
+  },
+  {
+   "fieldname": "reference_size_code",
+   "fieldtype": "Data",
+   "label": "Nearest Standard Size",
+   "description": "Informational \u2014 e.g. US Size M. Does not affect exports."
+  },
+  {
+   "fieldname": "measurements_section",
+   "fieldtype": "Section Break",
+   "label": "Body Measurements"
+  },
+  {
+   "fieldname": "bust_cm",
+   "fieldtype": "Float",
+   "label": "Bust (cm)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "waist_cm",
+   "fieldtype": "Float",
+   "label": "Waist (cm)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "hip_cm",
+   "fieldtype": "Float",
+   "label": "Hip (cm)"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inseam_cm",
+   "fieldtype": "Float",
+   "label": "Inseam (cm)"
+  },
+  {
+   "fieldname": "rise_cm",
+   "fieldtype": "Float",
+   "label": "Rise (cm)"
+  },
+  {
+   "fieldname": "thigh_cm",
+   "fieldtype": "Float",
+   "label": "Thigh (cm)"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shoulder_cm",
+   "fieldtype": "Float",
+   "label": "Shoulder Width (cm)"
+  },
+  {
+   "fieldname": "sleeve_cm",
+   "fieldtype": "Float",
+   "label": "Sleeve Length (cm)"
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "neck_cm",
+   "fieldtype": "Float",
+   "label": "Neck Circumference (cm)"
+  },
+  {
+   "fieldname": "chest_cm",
+   "fieldtype": "Float",
+   "label": "Chest (cm)"
+  },
+  {
+   "fieldname": "col_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "back_length_cm",
+   "fieldtype": "Float",
+   "label": "Back Length (cm)"
+  },
+  {
+   "fieldname": "front_length_cm",
+   "fieldtype": "Float",
+   "label": "Front Length (cm)"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Fitting Notes / Adjustments"
+  }
+ ],
+ "in_create": 1,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-05-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Fit Model",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Shop Floor Supervisor",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Shop Floor Operator",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "model_name",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

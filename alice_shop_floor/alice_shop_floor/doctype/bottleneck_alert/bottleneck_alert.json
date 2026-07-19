@@ -1,0 +1,24 @@
+{
+  "name": "Bottleneck Alert",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:BNA-{stage}-{YYYY}-{##}",
+  "track_changes": 0,
+  "fields": [
+    {"fieldname": "stage",           "fieldtype": "Data",     "label": "Stage",           "reqd": 1, "in_list_view": 1},
+    {"fieldname": "detected_at",     "fieldtype": "Datetime", "label": "Detected At"},
+    {"fieldname": "wip_count",       "fieldtype": "Int",      "label": "WIP Count",       "in_list_view": 1},
+    {"fieldname": "target_wip",      "fieldtype": "Int",      "label": "Target WIP",      "in_list_view": 1},
+    {"fieldname": "congestion_score","fieldtype": "Float",    "label": "Congestion Score","in_list_view": 1},
+    {"fieldname": "root_cause",      "fieldtype": "Select",   "label": "Root Cause",
+     "options": "Capacity Gap\nDownstream Block\nUpstream Surge\nOperator Shortage\nMachine Downtime\nUnknown"},
+    {"fieldname": "recommendation",  "fieldtype": "Small Text","label": "AI Recommendation"},
+    {"fieldname": "is_resolved",     "fieldtype": "Check",    "label": "Resolved"},
+    {"fieldname": "resolved_at",     "fieldtype": "Datetime", "label": "Resolved At"},
+    {"fieldname": "snapshot",        "fieldtype": "Link",     "label": "WIP Snapshot", "options": "WIP Snapshot"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

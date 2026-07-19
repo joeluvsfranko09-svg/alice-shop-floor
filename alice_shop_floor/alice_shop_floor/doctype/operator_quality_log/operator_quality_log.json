@@ -1,0 +1,206 @@
+{
+ "actions": [],
+ "autoname": "OQL-.YYYY.-.#####",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "job_card",
+  "decoration_method",
+  "completed_at",
+  "col_break_1",
+  "employee",
+  "employee_name",
+  "machine_config",
+  "quality_section",
+  "defect_count",
+  "rework_flag",
+  "col_break_2",
+  "cycle_time_sec",
+  "proficiency_at_time",
+  "defect_section",
+  "defect_notes",
+  "defect_types",
+  "meta_section",
+  "work_order",
+  "production_recipe"
+ ],
+ "fields": [
+  {
+   "fieldname": "job_card",
+   "fieldtype": "Link",
+   "label": "Job Card",
+   "options": "Job Card",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "decoration_method",
+   "fieldtype": "Select",
+   "label": "Method",
+   "options": "\nDTG\nDTF\nEmbroidery",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "completed_at",
+   "fieldtype": "Datetime",
+   "label": "Completed At",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Operator (Employee)",
+   "options": "Employee",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Operator Name",
+   "fetch_from": "employee.employee_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "machine_config",
+   "fieldtype": "Link",
+   "label": "Machine Used",
+   "options": "Machine Config",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "quality_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Outcome"
+  },
+  {
+   "fieldname": "defect_count",
+   "fieldtype": "Int",
+   "label": "Defect Count",
+   "default": "0",
+   "description": "Number of defects observed on this garment at this station"
+  },
+  {
+   "fieldname": "rework_flag",
+   "fieldtype": "Check",
+   "label": "Rework Required",
+   "default": "0",
+   "description": "Set if garment required rework or replacement after this decoration step"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cycle_time_sec",
+   "fieldtype": "Float",
+   "label": "Cycle Time (sec)",
+   "description": "Elapsed seconds from scan-to-start to completion stamp"
+  },
+  {
+   "fieldname": "proficiency_at_time",
+   "fieldtype": "Select",
+   "label": "Proficiency at Time",
+   "options": "\nTrainee\nCertified\nExpert",
+   "description": "Operator's certification level at the time of this job — snapshot for historical accuracy"
+  },
+  {
+   "fieldname": "defect_section",
+   "fieldtype": "Section Break",
+   "label": "Defect Detail"
+  },
+  {
+   "fieldname": "defect_notes",
+   "fieldtype": "Small Text",
+   "label": "Defect Notes",
+   "description": "Describe any defects observed: misalignment, color shift, stitch drop, peel failure, etc."
+  },
+  {
+   "fieldname": "defect_types",
+   "fieldtype": "Data",
+   "label": "Defect Type Tags",
+   "description": "Comma-separated defect type codes (e.g. MISALIGN, COLOR_SHIFT, PEEL_FAIL, STITCH_DROP)"
+  },
+  {
+   "fieldname": "meta_section",
+   "fieldtype": "Section Break",
+   "label": "Source References"
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "production_recipe",
+   "fieldtype": "Link",
+   "label": "Production Recipe",
+   "options": "Production Recipe",
+   "read_only": 1
+  }
+ ],
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Operator Quality Log",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Shop Floor Supervisor",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Shop Floor Operator",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "completed_at",
+ "sort_order": "DESC",
+ "track_changes": 0
+}

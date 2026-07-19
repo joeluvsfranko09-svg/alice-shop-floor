@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "autoname": "format:RBR-{snapshot}-{##}",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "snapshot",
+  "status",
+  "col_break_1",
+  "bottleneck_stage",
+  "donor_stage",
+  "section_operator",
+  "suggested_operator",
+  "confidence_score",
+  "col_break_2",
+  "reason",
+  "section_response",
+  "responded_by",
+  "responded_at",
+  "col_break_3",
+  "response_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "snapshot",
+   "fieldtype": "Link",
+   "label": "Snapshot",
+   "options": "Line Balance Snapshot",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nAccepted\nRejected\nExpired",
+   "default": "Pending",
+   "reqd": 1,
+   "in_list_view": 1,
+   "bold": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bottleneck_stage",
+   "fieldtype": "Select",
+   "label": "Bottleneck Stage (needs help)",
+   "options": "Fabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "reqd": 1,
+   "in_list_view": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "donor_stage",
+   "fieldtype": "Select",
+   "label": "Donor Stage (can spare operator)",
+   "options": "\nFabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_operator",
+   "fieldtype": "Section Break",
+   "label": "Suggested Move"
+  },
+  {
+   "fieldname": "suggested_operator",
+   "fieldtype": "Link",
+   "label": "Suggested Operator",
+   "options": "User",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "confidence_score",
+   "fieldtype": "Percent",
+   "label": "Confidence",
+   "description": "How confident ALICE is in this recommendation (based on operator skill data)"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason",
+   "description": "ALICE explanation for this recommendation"
+  },
+  {
+   "fieldname": "section_response",
+   "fieldtype": "Section Break",
+   "label": "Supervisor Response"
+  },
+  {
+   "fieldname": "responded_by",
+   "fieldtype": "Link",
+   "label": "Responded By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "responded_at",
+   "fieldtype": "Datetime",
+   "label": "Responded At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "response_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Rebalancing Recommendation",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 0, "delete": 0, "read": 1, "write": 0, "role": "Manufacturing User"},
+  {"create": 1, "delete": 0, "read": 1, "write": 1, "role": "Manufacturing Manager"},
+  {"create": 1, "delete": 1, "read": 1, "write": 1, "role": "System Manager"}
+ ],
+ "sort_field": "snapshot",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

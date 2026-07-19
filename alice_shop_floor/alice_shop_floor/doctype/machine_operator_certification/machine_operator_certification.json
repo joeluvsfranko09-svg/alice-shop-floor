@@ -1,0 +1,116 @@
+{
+  "name": "Machine Operator Certification",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "description": "Tracks which operators are certified to run each decoration machine or method. Used by station pages to show operator skill levels and gate job dispatch.",
+  "autoname": "format:CERT-{decoration_method}-{employee}-{####}",
+  "title_field": "employee",
+  "track_changes": 1,
+  "is_submittable": 0,
+  "fields": [
+    {
+      "fieldname": "employee",
+      "label": "Employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "employee_name",
+      "label": "Employee Name",
+      "fieldtype": "Data",
+      "fetch_from": "employee.employee_name",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "decoration_method",
+      "label": "Decoration Method",
+      "fieldtype": "Select",
+      "options": "\nDTF\nDTG\nEmbroidery",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "machine_config",
+      "label": "Specific Machine (optional)",
+      "fieldtype": "Link",
+      "options": "Machine Config",
+      "description": "Leave blank to certify for ALL machines of this method. Set to a specific machine to certify only for that head/unit.",
+      "in_standard_filter": 1,
+      "depends_on": "eval:doc.decoration_method"
+    },
+    {
+      "fieldname": "proficiency_section",
+      "label": "Proficiency",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "proficiency_level",
+      "label": "Proficiency Level",
+      "fieldtype": "Select",
+      "options": "\nTrainee\nCertified\nExpert",
+      "reqd": 1,
+      "default": "Certified",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "description": "Trainee = supervised only. Certified = operates independently. Expert = can train others and override safety warnings."
+    },
+    {
+      "fieldname": "is_active",
+      "label": "Active",
+      "fieldtype": "Check",
+      "default": "1",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "col_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "certified_on",
+      "label": "Certified On",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "default": "Today"
+    },
+    {
+      "fieldname": "certified_by",
+      "label": "Certified By",
+      "fieldtype": "Data",
+      "description": "Name or employee ID of trainer / supervisor who signed off"
+    },
+    {
+      "fieldname": "expires_on",
+      "label": "Expires On",
+      "fieldtype": "Date",
+      "description": "Leave blank for no expiry. Station will warn (not block) when approaching expiry."
+    },
+    {
+      "fieldname": "notes_section",
+      "label": "Notes",
+      "fieldtype": "Section Break",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Small Text",
+      "description": "Training notes, equipment-specific quirks, or certification conditions"
+    }
+  ],
+  "permissions": [
+    { "role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1, "delete": 1 },
+    { "role": "Manufacturing User",    "read": 1 },
+    { "role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1 }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "dtf-print-station",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "dtf-print-station",
+  "title": "DTF Print Station",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"}
+  ]
+}

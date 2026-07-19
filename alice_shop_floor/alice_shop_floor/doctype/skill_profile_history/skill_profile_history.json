@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "period_label",
+  "skill_score",
+  "col_break_1",
+  "quality_score",
+  "speed_score",
+  "pieces_in_period",
+  "col_break_2",
+  "qc_pass_rate_pct",
+  "defect_rate_per_100"
+ ],
+ "fields": [
+  {
+   "fieldname": "period_label",
+   "fieldtype": "Data",
+   "label": "Period",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "skill_score",
+   "fieldtype": "Float",
+   "label": "Skill Score",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quality_score",
+   "fieldtype": "Float",
+   "label": "Quality",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "speed_score",
+   "fieldtype": "Float",
+   "label": "Speed",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "pieces_in_period",
+   "fieldtype": "Int",
+   "label": "Pieces",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qc_pass_rate_pct",
+   "fieldtype": "Percent",
+   "label": "QC Pass %"
+  },
+  {
+   "fieldname": "defect_rate_per_100",
+   "fieldtype": "Float",
+   "label": "Defects / 100"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Skill Profile History",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "period_label",
+ "sort_order": "DESC",
+ "track_changes": 0
+}

@@ -1,0 +1,13 @@
+{
+  "name": "shop-floor-dashboard",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "shop-floor-dashboard",
+  "title": "ALICE Shop Floor",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"}
+  ]
+}

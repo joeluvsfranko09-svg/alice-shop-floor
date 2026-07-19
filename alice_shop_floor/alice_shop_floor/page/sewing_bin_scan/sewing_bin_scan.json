@@ -1,0 +1,13 @@
+{
+  "name": "sewing-bin-scan",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "sewing-bin-scan",
+  "title": "Sewing Bin Scan",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"}
+  ]
+}

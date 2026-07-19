@@ -1,0 +1,30 @@
+{
+  "name": "Downtime Intelligence Report",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:DTI-{window_label}-{##}",
+  "track_changes": 0,
+  "fields": [
+    {"fieldname": "window_label",        "fieldtype": "Data",     "label": "Window Label",        "reqd": 1, "in_list_view": 1},
+    {"fieldname": "window_start",        "fieldtype": "Datetime", "label": "Window Start"},
+    {"fieldname": "window_end",          "fieldtype": "Datetime", "label": "Window End"},
+    {"fieldname": "generated_at",        "fieldtype": "Datetime", "label": "Generated At"},
+    {"fieldname": "totals_section",      "fieldtype": "Section Break", "label": "Totals"},
+    {"fieldname": "total_events",        "fieldtype": "Int",      "label": "Total Events"},
+    {"fieldname": "total_minutes_lost",  "fieldtype": "Float",    "label": "Total Minutes Lost"},
+    {"fieldname": "avg_duration_minutes","fieldtype": "Float",    "label": "Avg Duration (min)"},
+    {"fieldname": "top_root_cause_group","fieldtype": "Data",     "label": "Top Root Cause Group", "in_list_view": 1},
+    {"fieldname": "top_stage",           "fieldtype": "Data",     "label": "Most Affected Stage",  "in_list_view": 1},
+    {"fieldname": "recurring_events",    "fieldtype": "Int",      "label": "Recurring Issues"},
+    {"fieldname": "patterns_section",    "fieldtype": "Section Break", "label": "Patterns (JSON)"},
+    {"fieldname": "by_stage_json",       "fieldtype": "Long Text","label": "By Stage (JSON)"},
+    {"fieldname": "by_root_cause_json",  "fieldtype": "Long Text","label": "By Root Cause (JSON)"},
+    {"fieldname": "top_machines_json",   "fieldtype": "Long Text","label": "Top Machines (JSON)"},
+    {"fieldname": "recurring_causes_json","fieldtype": "Long Text","label": "Recurring Causes (JSON)"},
+    {"fieldname": "recommendations",     "fieldtype": "Long Text","label": "AI Recommendations"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

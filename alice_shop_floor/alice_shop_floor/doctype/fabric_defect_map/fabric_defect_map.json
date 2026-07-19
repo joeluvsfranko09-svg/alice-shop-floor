@@ -1,0 +1,70 @@
+{
+  "name": "Fabric Defect Map",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+    {
+      "fieldname": "defect_index",
+      "fieldtype": "Int",
+      "label": "Defect #",
+      "in_list_view": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "label": "Severity",
+      "options": "Minor\nMajor\nCritical",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "defect_type",
+      "fieldtype": "Data",
+      "label": "Defect Type",
+      "in_list_view": 1,
+      "description": "e.g. Hole, Stain, Tear, Weave Fault, Colour Variation"
+    },
+    {
+      "fieldname": "x_mm",
+      "fieldtype": "Float",
+      "label": "X Position (mm)",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "y_mm",
+      "fieldtype": "Float",
+      "label": "Y Position (mm)"
+    },
+    {
+      "fieldname": "width_mm",
+      "fieldtype": "Float",
+      "label": "Width (mm)"
+    },
+    {
+      "fieldname": "height_mm",
+      "fieldtype": "Float",
+      "label": "Height (mm)"
+    },
+    {
+      "fieldname": "area_mm2",
+      "fieldtype": "Float",
+      "label": "Area (mm²)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "confidence_score",
+      "fieldtype": "Float",
+      "label": "Confidence Score",
+      "description": "0-100 confidence from Cognex classifier"
+    },
+    {
+      "fieldname": "image_ref",
+      "fieldtype": "Data",
+      "label": "Image Crop Reference",
+      "description": "S3 key or URL for the cropped defect image"
+    }
+  ]
+}

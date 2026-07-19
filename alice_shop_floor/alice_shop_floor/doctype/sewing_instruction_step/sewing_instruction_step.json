@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sequence",
+  "piece_type",
+  "stitch_type",
+  "machine_setting",
+  "step_photo",
+  "section_en",
+  "instruction_text_en",
+  "section_es",
+  "instruction_text_es",
+  "section_ht",
+  "instruction_text_ht",
+  "section_pt",
+  "instruction_text_pt",
+  "section_fr",
+  "instruction_text_fr",
+  "section_vi",
+  "instruction_text_vi",
+  "section_zh",
+  "instruction_text_zh"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "sequence",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Step #",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "piece_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Piece / Operation",
+   "description": "e.g. Front Panel, Collar, Set Sleeves"
+  },
+  {
+   "columns": 2,
+   "fieldname": "stitch_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Stitch Type",
+   "description": "e.g. Lockstitch 301, Overlock 504, Coverstitch 406"
+  },
+  {
+   "fieldname": "machine_setting",
+   "fieldtype": "Data",
+   "label": "Machine Setting",
+   "description": "e.g. SPI 10, tension 3, presser foot: zipper"
+  },
+  {
+   "fieldname": "step_photo",
+   "fieldtype": "Attach Image",
+   "label": "Step Reference Photo"
+  },
+  {
+   "fieldname": "section_en",
+   "fieldtype": "Section Break",
+   "label": "English (Source)"
+  },
+  {
+   "fieldname": "instruction_text_en",
+   "fieldtype": "Text Editor",
+   "label": "Instructions (English)",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_es",
+   "fieldtype": "Section Break",
+   "label": "Spanish / Español"
+  },
+  {
+   "fieldname": "instruction_text_es",
+   "fieldtype": "Text Editor",
+   "label": "Instructions (Español)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_ht",
+   "fieldtype": "Section Break",
+   "label": "Haitian Creole / Kreyòl Ayisyen"
+  },
+  {
+   "fieldname": "instruction_text_ht",
+   "fieldtype": "Text Editor",
+   "label": "Instructions (Kreyòl)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_pt",
+   "fieldtype": "Section Break",
+   "label": "Portuguese / Português"
+  },
+  {
+   "fieldname": "instruction_text_pt",
+   "fieldtype": "Text Editor",
+   "label": "Instructions (Português)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_fr",
+   "fieldtype": "Section Break",
+   "label": "French / Français"
+  },
+  {
+   "fieldname": "instruction_text_fr",
+   "fieldtype": "Text Editor",
+   "label": "Instructions (Français)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_vi",
+   "fieldtype": "Section Break",
+   "label": "Vietnamese / Tiếng Việt"
+  },
+  {
+   "fieldname": "instruction_text_vi",
+   "fieldtype": "Text Editor",
+   "label": "Instructions (Tiếng Việt)"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_zh",
+   "fieldtype": "Section Break",
+   "label": "Chinese / 中文"
+  },
+  {
+   "fieldname": "instruction_text_zh",
+   "fieldtype": "Text Editor",
+   "label": "Instructions (中文)"
+  }
+ ],
+ "istable": 1,
+ "modified": "2026-05-13 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Sewing Instruction Step",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "sequence",
+ "sort_order": "ASC"
+}

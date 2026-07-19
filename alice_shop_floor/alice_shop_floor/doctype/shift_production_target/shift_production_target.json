@@ -1,0 +1,104 @@
+{
+  "name": "Shift Production Target",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "description": "Per-operator or line-wide WO completion targets for a given shift. Used by the pace engine to compute On Track / Behind / Critical status.",
+  "autoname": "format:SPT-{operator}-{shift_date}-{shift}",
+  "fields": [
+    {
+      "fieldname": "operator",
+      "fieldtype": "Link",
+      "label": "Operator",
+      "options": "Employee",
+      "reqd": 1,
+      "in_list_view": 1,
+      "search_index": 1,
+      "description": "Leave blank to set a line-wide default target"
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "shift_date",
+      "fieldtype": "Date",
+      "label": "Shift Date",
+      "reqd": 1,
+      "default": "Today",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "shift",
+      "fieldtype": "Select",
+      "label": "Shift",
+      "options": "Morning\nAfternoon\nNight",
+      "default": "Morning",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "section_targets",
+      "fieldtype": "Section Break",
+      "label": "Targets"
+    },
+    {
+      "fieldname": "target_wos",
+      "fieldtype": "Int",
+      "label": "Target WOs (garments)",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "Number of Work Orders (garments) this operator should complete this shift"
+    },
+    {
+      "fieldname": "col_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "warn_pct",
+      "fieldtype": "Float",
+      "label": "Warning Threshold %",
+      "default": "80",
+      "description": "Projected completion below this % of target triggers Behind (yellow)"
+    },
+    {
+      "fieldname": "critical_pct",
+      "fieldtype": "Float",
+      "label": "Critical Threshold %",
+      "default": "60",
+      "description": "Projected completion below this % of target triggers Critical (red)"
+    },
+    {
+      "fieldname": "section_shift_times",
+      "fieldtype": "Section Break",
+      "label": "Shift Time Window"
+    },
+    {
+      "fieldname": "shift_start",
+      "fieldtype": "Time",
+      "label": "Shift Start",
+      "description": "Auto-filled from global shift config if blank"
+    },
+    {
+      "fieldname": "col_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "shift_end",
+      "fieldtype": "Time",
+      "label": "Shift End",
+      "description": "Auto-filled from global shift config if blank"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "sort_field": "shift_date",
+  "sort_order": "DESC",
+  "permissions": [
+    {"role": "Manufacturing User",    "read": 1},
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

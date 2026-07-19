@@ -1,0 +1,23 @@
+{
+  "name": "WIP Snapshot",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:WIPS-{YYYY}{MM}{DD}-{##}",
+  "track_changes": 0,
+  "fields": [
+    {"fieldname": "snapshot_at",   "fieldtype": "Datetime", "label": "Snapshot At",    "reqd": 1},
+    {"fieldname": "fabric_inspection_count","fieldtype": "Int","label": "Fabric Inspection", "in_list_view": 1},
+    {"fieldname": "cutting_count",  "fieldtype": "Int",     "label": "Cutting",         "in_list_view": 1},
+    {"fieldname": "bundling_count", "fieldtype": "Int",     "label": "Bundling",        "in_list_view": 1},
+    {"fieldname": "sewing_count",   "fieldtype": "Int",     "label": "Sewing",          "in_list_view": 1},
+    {"fieldname": "final_qc_count", "fieldtype": "Int",     "label": "Final QC",        "in_list_view": 1},
+    {"fieldname": "pack_count",     "fieldtype": "Int",     "label": "Pack",            "in_list_view": 1},
+    {"fieldname": "bottleneck_stage","fieldtype": "Data",   "label": "Bottleneck Stage"},
+    {"fieldname": "congestion_score","fieldtype": "Float",  "label": "Congestion Score"},
+    {"fieldname": "alert_fired",    "fieldtype": "Check",   "label": "Alert Fired"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "delete": 1}
+  ]
+}

@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "autoname": "format:PJB-{fabric_lot}-{##}",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "fabric_lot",
+  "status",
+  "col_break_1",
+  "printfactory_job_id",
+  "order_count",
+  "section_fabric",
+  "fabric_width_mm",
+  "nesting_gap_mm",
+  "col_break_2",
+  "nesting_efficiency_pct",
+  "fabric_length_mm",
+  "section_orders",
+  "work_orders",
+  "section_timing",
+  "submitted_at",
+  "col_break_3",
+  "completed_at",
+  "section_error",
+  "error_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "fabric_lot",
+   "fieldtype": "Data",
+   "label": "Fabric Lot",
+   "reqd": 1,
+   "in_list_view": 1,
+   "bold": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSubmitted\nIn Progress\nCompleted\nFailed\nCancelled",
+   "default": "Draft",
+   "reqd": 1,
+   "in_list_view": 1,
+   "bold": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "printfactory_job_id",
+   "fieldtype": "Data",
+   "label": "PrintFactory Job ID",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "order_count",
+   "fieldtype": "Int",
+   "label": "Orders in Batch",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_fabric",
+   "fieldtype": "Section Break",
+   "label": "Fabric & Nesting"
+  },
+  {
+   "fieldname": "fabric_width_mm",
+   "fieldtype": "Float",
+   "label": "Fabric Width (mm)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nesting_gap_mm",
+   "fieldtype": "Float",
+   "label": "Nesting Gap (mm)"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "nesting_efficiency_pct",
+   "fieldtype": "Percent",
+   "label": "Nesting Efficiency",
+   "read_only": 1,
+   "description": "Reported by PrintFactory — fabric used / fabric allocated"
+  },
+  {
+   "fieldname": "fabric_length_mm",
+   "fieldtype": "Float",
+   "label": "Fabric Length Used (mm)",
+   "read_only": 1,
+   "description": "Total fabric length consumed for this batch"
+  },
+  {
+   "fieldname": "section_orders",
+   "fieldtype": "Section Break",
+   "label": "Work Orders"
+  },
+  {
+   "fieldname": "work_orders",
+   "fieldtype": "Table",
+   "label": "Work Orders",
+   "options": "Print Job Work Order"
+  },
+  {
+   "fieldname": "section_timing",
+   "fieldtype": "Section Break",
+   "label": "Timing"
+  },
+  {
+   "fieldname": "submitted_at",
+   "fieldtype": "Datetime",
+   "label": "Submitted At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "completed_at",
+   "fieldtype": "Datetime",
+   "label": "Completed At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_error",
+   "fieldtype": "Section Break",
+   "label": "Error"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Print Job Batch",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 0, "delete": 0, "read": 1, "write": 0, "role": "Manufacturing User"},
+  {"create": 1, "delete": 0, "read": 1, "write": 1, "role": "Manufacturing Manager"},
+  {"create": 1, "delete": 1, "read": 1, "write": 1, "role": "System Manager"}
+ ],
+ "sort_field": "submitted_at",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

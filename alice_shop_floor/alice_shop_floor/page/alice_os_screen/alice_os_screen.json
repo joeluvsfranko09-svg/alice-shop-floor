@@ -1,0 +1,14 @@
+{
+  "name": "alice-os-screen",
+  "doctype": "Page",
+  "module": "Alice Shop Floor",
+  "page_name": "alice-os-screen",
+  "title": "ALICE OS",
+  "system_page": 0,
+  "roles": [
+    {"role": "Manufacturing Manager"},
+    {"role": "Manufacturing User"},
+    {"role": "System Manager"},
+    {"role": "All"}
+  ]
+}

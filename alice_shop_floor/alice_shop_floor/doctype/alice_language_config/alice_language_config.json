@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "language_code",
+  "language_name",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "language_code",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Code",
+   "options": "en\nes\nht\npt\nfr\nvi\nzh",
+   "reqd": 1
+  },
+  {
+   "fieldname": "language_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Language Name",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Active"
+  }
+ ],
+ "istable": 1,
+ "modified": "2026-05-13 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "ALICE Language Config",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

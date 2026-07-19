@@ -1,0 +1,119 @@
+{
+  "name": "Machine Job Log",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "description": "Every communication event between ALICE and a decoration machine — job sent, status polled, error received. Immutable audit trail.",
+  "autoname": "naming_series:MJL-.YYYY.-.#####",
+  "title_field": "machine_config",
+  "track_changes": 0,
+  "is_submittable": 0,
+  "fields": [
+    {
+      "fieldname": "machine_config",
+      "label": "Machine",
+      "fieldtype": "Link",
+      "options": "Machine Config",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "job_card",
+      "label": "Job Card",
+      "fieldtype": "Link",
+      "options": "Job Card",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "event_type",
+      "label": "Event",
+      "fieldtype": "Select",
+      "options": "\nJobSent\nStatusPoll\nJobComplete\nJobError\nPing\nCancelJob\nFilePushed",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "\nSuccess\nFailure\nTimeout\nPending",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "col_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "machine_job_id",
+      "label": "Machine Job ID",
+      "fieldtype": "Data",
+      "description": "Job ID returned by the machine (Epson Edge Print job ID, Melco job ref, etc.)"
+    },
+    {
+      "fieldname": "decoration_method",
+      "label": "Method",
+      "fieldtype": "Select",
+      "options": "\nDTF\nDTG\nEmbroidery",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "sent_at",
+      "label": "Sent At",
+      "fieldtype": "Datetime",
+      "reqd": 1
+    },
+    {
+      "fieldname": "response_time_ms",
+      "label": "Response Time (ms)",
+      "fieldtype": "Float",
+      "read_only": 1
+    },
+    {
+      "fieldname": "payload_section",
+      "label": "Payload & Response",
+      "fieldtype": "Section Break",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "request_payload",
+      "label": "Request Payload (JSON)",
+      "fieldtype": "Code",
+      "options": "JSON",
+      "read_only": 1
+    },
+    {
+      "fieldname": "response_payload",
+      "label": "Response Payload (JSON)",
+      "fieldtype": "Code",
+      "options": "JSON",
+      "read_only": 1
+    },
+    {
+      "fieldname": "error_section",
+      "label": "Error Detail",
+      "fieldtype": "Section Break",
+      "collapsible": 1,
+      "depends_on": "eval:doc.status=='Failure'||doc.status=='Timeout'"
+    },
+    {
+      "fieldname": "error_code",
+      "label": "Error Code",
+      "fieldtype": "Data",
+      "depends_on": "eval:doc.status=='Failure'||doc.status=='Timeout'"
+    },
+    {
+      "fieldname": "error_message",
+      "label": "Error Message",
+      "fieldtype": "Small Text",
+      "depends_on": "eval:doc.status=='Failure'||doc.status=='Timeout'"
+    }
+  ],
+  "permissions": [
+    { "role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1 },
+    { "role": "Manufacturing User",    "read": 1 },
+    { "role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1 }
+  ]
+}

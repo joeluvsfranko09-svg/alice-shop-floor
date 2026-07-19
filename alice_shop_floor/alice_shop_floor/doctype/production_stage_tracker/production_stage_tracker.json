@@ -1,0 +1,184 @@
+{
+ "actions": [],
+ "autoname": "format:TRACKER-{work_order}",
+ "creation": "2026-05-13 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "work_order",
+  "production_item",
+  "col_break_1",
+  "current_stage",
+  "is_complete",
+  "section_timing",
+  "stage_entered_at",
+  "col_break_2",
+  "expected_delivery_date",
+  "section_integration",
+  "printfactory_job_id",
+  "col_break_3",
+  "fabric_lot",
+  "pattern_file_ref",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "production_item",
+   "fieldtype": "Data",
+   "label": "Item",
+   "fetch_from": "work_order.production_item",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_stage",
+   "fieldtype": "Select",
+   "label": "Current Stage",
+   "options": "\nFabric Inspection\nCutting\nBundling\nSewing\nFinal QC\nPack",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "is_complete",
+   "fieldtype": "Check",
+   "label": "Complete",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_timing",
+   "fieldtype": "Section Break",
+   "label": "Timing"
+  },
+  {
+   "fieldname": "stage_entered_at",
+   "fieldtype": "Datetime",
+   "label": "Stage Entered At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery",
+   "fetch_from": "work_order.expected_delivery_date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_integration",
+   "fieldtype": "Section Break",
+   "label": "Integration IDs"
+  },
+  {
+   "fieldname": "printfactory_job_id",
+   "fieldtype": "Data",
+   "label": "PrintFactory Job ID",
+   "read_only": 0,
+   "in_list_view": 0
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fabric_lot",
+   "fieldtype": "Data",
+   "label": "Fabric Lot"
+  },
+  {
+   "fieldname": "pattern_file_ref",
+   "fieldtype": "Data",
+   "label": "Pattern File (.val reference)",
+   "description": "S3 key for the Seamly2D .val file used for this production run"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [
+  {
+   "link_doctype": "Stage Transition Log",
+   "link_fieldname": "tracker",
+   "group": "Transitions"
+  }
+ ],
+ "modified": "2026-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "Production Stage Tracker",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "stage_entered_at",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 0
+}

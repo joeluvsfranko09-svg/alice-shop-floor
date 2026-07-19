@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_ai",
+  "anthropic_api_key",
+  "anthropic_model",
+  "section_languages",
+  "supported_languages",
+  "cb_lang",
+  "translation_auto_on_save",
+  "section_press",
+  "press_camera_endpoint",
+  "press_confidence_threshold"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_ai",
+   "fieldtype": "Section Break",
+   "label": "AI / Translation"
+  },
+  {
+   "fieldname": "anthropic_api_key",
+   "fieldtype": "Password",
+   "label": "Anthropic API Key",
+   "description": "Used for auto-translation of sewing instructions. Store your Anthropic key here."
+  },
+  {
+   "default": "claude-haiku-4-5-20251001",
+   "fieldname": "anthropic_model",
+   "fieldtype": "Select",
+   "label": "Translation Model",
+   "options": "claude-haiku-4-5-20251001\nclaude-sonnet-4-6\nclaude-opus-4-6"
+  },
+  {
+   "fieldname": "section_languages",
+   "fieldtype": "Section Break",
+   "label": "Supported Languages"
+  },
+  {
+   "fieldname": "supported_languages",
+   "fieldtype": "Table",
+   "label": "Active Languages",
+   "options": "ALICE Language Config"
+  },
+  {
+   "fieldname": "cb_lang",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "translation_auto_on_save",
+   "fieldtype": "Check",
+   "label": "Auto-translate instructions on save"
+  },
+  {
+   "fieldname": "section_press",
+   "fieldtype": "Section Break",
+   "label": "Press QC Camera"
+  },
+  {
+   "fieldname": "press_camera_endpoint",
+   "fieldtype": "Data",
+   "label": "Press Camera Endpoint URL"
+  },
+  {
+   "default": "0.80",
+   "fieldname": "press_confidence_threshold",
+   "fieldtype": "Float",
+   "label": "Press QC Confidence Threshold (0–1)"
+  }
+ ],
+ "issingle": 1,
+ "modified": "2026-05-13 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Alice Shop Floor",
+ "name": "ALICE Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Shop Floor Supervisor",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

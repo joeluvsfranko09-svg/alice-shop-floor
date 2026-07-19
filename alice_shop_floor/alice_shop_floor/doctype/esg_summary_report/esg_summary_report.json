@@ -1,0 +1,34 @@
+{
+  "name": "ESG Summary Report",
+  "doctype": "DocType",
+  "module": "Alice Shop Floor",
+  "autoname": "format:ESGR-{period_label}-{##}",
+  "track_changes": 0,
+  "fields": [
+    {"fieldname": "period_label",       "fieldtype": "Data",     "label": "Period Label",    "reqd": 1, "in_list_view": 1},
+    {"fieldname": "period_start",       "fieldtype": "Datetime", "label": "Period Start"},
+    {"fieldname": "period_end",         "fieldtype": "Datetime", "label": "Period End"},
+    {"fieldname": "generated_at",       "fieldtype": "Datetime", "label": "Generated At"},
+    {"fieldname": "totals_section",     "fieldtype": "Section Break", "label": "Totals"},
+    {"fieldname": "garments_logged",    "fieldtype": "Int",      "label": "Garments Logged", "in_list_view": 1},
+    {"fieldname": "total_waste_kg",     "fieldtype": "Float",    "label": "Total Waste (kg)"},
+    {"fieldname": "avg_waste_pct",      "fieldtype": "Float",    "label": "Avg Waste %",     "in_list_view": 1},
+    {"fieldname": "total_water_litres", "fieldtype": "Float",    "label": "Total Water (L)"},
+    {"fieldname": "avg_water_per_garment","fieldtype": "Float",  "label": "Avg Water/Garment (L)"},
+    {"fieldname": "total_energy_kwh",   "fieldtype": "Float",    "label": "Total Energy (kWh)"},
+    {"fieldname": "avg_kwh_per_garment","fieldtype": "Float",    "label": "Avg kWh/Garment"},
+    {"fieldname": "total_co2_kg",       "fieldtype": "Float",    "label": "Total CO₂ (kg)",  "in_list_view": 1},
+    {"fieldname": "avg_co2_per_garment","fieldtype": "Float",    "label": "Avg CO₂/Garment (kg)"},
+    {"fieldname": "compliance_section", "fieldtype": "Section Break", "label": "Compliance"},
+    {"fieldname": "wos_exceeding_waste",  "fieldtype": "Int",   "label": "WOs Exceeding Waste Target"},
+    {"fieldname": "wos_exceeding_water",  "fieldtype": "Int",   "label": "WOs Exceeding Water Target"},
+    {"fieldname": "wos_exceeding_energy", "fieldtype": "Int",   "label": "WOs Exceeding Energy Target"},
+    {"fieldname": "compliance_status",  "fieldtype": "Select",  "label": "Compliance Status", "in_list_view": 1,
+     "options": "Compliant\nWarning\nNon-Compliant"},
+    {"fieldname": "narrative",          "fieldtype": "Long Text","label": "AI Narrative"}
+  ],
+  "permissions": [
+    {"role": "Manufacturing Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager",        "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}
